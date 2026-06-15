@@ -71,13 +71,6 @@ const highlights = [
   "Anglais bilingue : TOEIC 990/990, TOEFL 105/120.",
 ];
 
-const projects = [
-  "Mur des alumni PGE : page custom codée from scratch pour le site admissibles KEDGE.",
-  "Brochure PGE KEDGE : architecture éditoriale, squelette et contenus.",
-  "Interview Enes Kanter Freedom : préparation éditoriale et interview publique sur campus.",
-  "Shooting photo Forum APHEC : photos reprises dans un support Major Prépa.",
-];
-
 const skills = [
   {
     title: "Contenu & communication",
@@ -126,15 +119,15 @@ const education = [
 
     <main class="cv-page" aria-label="CV Julien Bonavita">
       <header class="cv-header">
-        <div>
-          <p class="eyebrow">CV - Marketing, content, SEO & IA</p>
-          <h1>Julien Bonavita</h1>
-          <p class="headline">
-            Chef de projet marketing & communication | Content, SEO, acquisition, plans médias & IA générative
-          </p>
-          <p class="summary">
-            Professionnel de la communication basé à Bordeaux, je transforme des enjeux business en dispositifs éditoriaux clairs, utiles et mesurables. Chez KEDGE Business School, je pilote des contenus et plans de communication pour des programmes à fort enjeu de recrutement, avec une approche orientée acquisition, SEO, reporting et usages IA.
-          </p>
+        <div class="identity">
+          <img src="/images/portrait.webp" alt="Portrait de Julien Bonavita" class="cv-photo" />
+          <div>
+            <p class="eyebrow">CV - Marketing, content, SEO & IA</p>
+            <h1>Julien Bonavita</h1>
+            <p class="headline">
+              Chef de projet marketing & communication | Content, SEO, acquisition, plans médias & IA générative
+            </p>
+          </div>
         </div>
         <address class="contact">
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
@@ -143,6 +136,13 @@ const education = [
           <span>Anglais bilingue - TOEIC 990/990</span>
         </address>
       </header>
+
+      <section class="cv-section summary-section" aria-labelledby="profil-title">
+        <h2 id="profil-title">Profil</h2>
+        <p class="summary">
+          Professionnel de la communication basé à Bordeaux, je transforme des enjeux business en dispositifs éditoriaux clairs, utiles et mesurables. Chez KEDGE Business School, je pilote des contenus et plans de communication pour des programmes à fort enjeu de recrutement, avec une approche orientée acquisition, SEO, reporting et usages IA.
+        </p>
+      </section>
 
       <section class="cv-section proof-strip" aria-labelledby="preuves-title">
         <h2 id="preuves-title">Réalisations clés</h2>
@@ -184,13 +184,6 @@ const education = [
                 </section>
               ))}
             </div>
-          </section>
-
-          <section class="cv-section">
-            <h2>Projets sélectionnés</h2>
-            <ul class="compact-list">
-              {projects.map((project) => <li>{project}</li>)}
-            </ul>
           </section>
 
           <section class="cv-section">
@@ -237,8 +230,8 @@ const education = [
     color: var(--cv-ink);
     background: var(--cv-bg);
     font-family: var(--font);
-    font-size: 14px;
-    line-height: 1.42;
+    font-size: 12.5px;
+    line-height: 1.32;
   }
 
   a {
@@ -292,61 +285,81 @@ const education = [
   }
 
   .cv-page {
-    width: min(1120px, calc(100% - 32px));
+    width: min(210mm, calc(100% - 32px));
+    min-height: 297mm;
     margin: 0 auto 40px;
-    padding: 34px;
+    padding: 13mm;
     background: var(--cv-paper);
     border: 1px solid var(--cv-line);
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   .cv-header {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 270px;
-    gap: 28px;
+    grid-template-columns: minmax(0, 1fr) 57mm;
+    gap: 8mm;
     align-items: start;
-    padding-bottom: 20px;
-    border-bottom: 3px solid var(--cv-primary);
+    padding-bottom: 5mm;
+    border-bottom: 2px solid var(--cv-primary);
+  }
+
+  .identity {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 24mm minmax(0, 1fr);
+    gap: 5mm;
+    align-items: center;
+  }
+
+  .cv-photo {
+    width: 24mm;
+    aspect-ratio: 1;
+    display: block;
+    object-fit: cover;
+    object-position: 50% 17%;
+    border-radius: 9px;
+    background: var(--cv-paper);
+    border: 1px solid var(--cv-line);
   }
 
   .eyebrow {
     width: fit-content;
-    margin-bottom: 10px;
-    padding: 0.28rem 0.46rem;
+    margin-bottom: 6px;
+    padding: 0.25rem 0.42rem;
     color: var(--cv-on-dark);
     background: var(--cv-accent);
-    border-radius: 8px;
-    font-size: 0.76rem;
+    border-radius: 5px;
+    font-size: 0.7rem;
     font-weight: 850;
   }
 
   h1 {
-    font-size: clamp(2.8rem, 7vw, 5.2rem);
-    line-height: 0.9;
-    letter-spacing: -0.035em;
+    font-size: clamp(2rem, 4.4vw, 2.65rem);
+    line-height: 0.94;
+    letter-spacing: -0.025em;
   }
 
   .headline {
     max-width: 72ch;
-    margin-top: 12px;
-    font-size: 1.13rem;
+    margin-top: 6px;
+    font-size: 0.94rem;
     font-weight: 850;
   }
 
   .summary {
     max-width: 86ch;
-    margin-top: 12px;
     color: var(--cv-muted);
   }
 
   .contact {
-    padding: 14px;
+    padding: 4mm;
     display: grid;
-    gap: 7px;
+    gap: 1.7mm;
     color: var(--cv-on-dark);
     background: var(--cv-primary);
-    border-radius: 8px;
+    border-radius: 7px;
     font-style: normal;
+    font-size: 0.88rem;
     font-weight: 760;
   }
 
@@ -355,35 +368,42 @@ const education = [
     overflow-wrap: anywhere;
   }
 
+  .summary-section {
+    margin-top: 3.5mm;
+    display: grid;
+    grid-template-columns: 23mm minmax(0, 1fr);
+    gap: 5mm;
+    align-items: start;
+  }
+
   .proof-strip {
-    margin-top: 18px;
-    padding: 14px;
-    color: var(--cv-on-dark);
-    background: var(--cv-accent);
-    border-radius: 8px;
+    margin-top: 3.8mm;
+    padding: 3mm 0;
+    border-top: 1px solid var(--cv-line);
+    border-bottom: 1px solid var(--cv-line);
   }
 
   .proof-strip h2 {
-    color: var(--cv-on-dark);
+    color: var(--cv-primary);
   }
 
   .proof-strip ul {
-    margin-top: 8px;
+    margin-top: 1.8mm;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px 18px;
+    gap: 1.2mm 5mm;
   }
 
   .proof-strip li {
-    color: oklch(0.94 0.025 285);
+    color: var(--cv-ink);
     font-weight: 720;
   }
 
   .cv-grid {
-    margin-top: 22px;
+    margin-top: 4.2mm;
     display: grid;
-    grid-template-columns: minmax(0, 1.58fr) minmax(270px, 0.82fr);
-    gap: 28px;
+    grid-template-columns: minmax(0, 1.54fr) minmax(43mm, 0.8fr);
+    gap: 6.5mm;
   }
 
   h2 {
@@ -400,13 +420,13 @@ const education = [
   }
 
   .experience-list {
-    margin-top: 12px;
+    margin-top: 2.2mm;
     display: grid;
-    gap: 13px;
+    gap: 2mm;
   }
 
   .experience {
-    padding-bottom: 13px;
+    padding-bottom: 2mm;
     border-bottom: 1px solid var(--cv-line);
   }
 
@@ -416,8 +436,8 @@ const education = [
 
   .experience header {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 142px;
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) 28mm;
+    gap: 3.5mm;
   }
 
   .experience header p:not(.meta) {
@@ -434,15 +454,15 @@ const education = [
   }
 
   .intro {
-    margin-top: 7px;
+    margin-top: 1.1mm;
     color: var(--cv-muted);
   }
 
   .experience ul,
   .compact-list {
-    margin-top: 8px;
+    margin-top: 1.4mm;
     display: grid;
-    gap: 5px;
+    gap: 0.9mm;
   }
 
   .experience li,
@@ -465,7 +485,7 @@ const education = [
 
   .side-column {
     display: grid;
-    gap: 16px;
+    gap: 3mm;
     align-content: start;
   }
 
@@ -474,18 +494,18 @@ const education = [
   }
 
   .cv-section h2 + * {
-    margin-top: 8px;
+    margin-top: 1.6mm;
   }
 
   .skill-list {
     display: grid;
-    gap: 10px;
+    gap: 1.6mm;
   }
 
   .skill-list section {
-    padding: 10px;
+    padding: 1.8mm;
     background: var(--cv-soft);
-    border-radius: 8px;
+    border-radius: 6px;
   }
 
   .skill-list h3 {
@@ -517,17 +537,29 @@ const education = [
     .cv-page {
       padding: 18px;
       border-radius: 10px;
+      min-height: 0;
     }
 
     .cv-header,
     .cv-grid,
+    .summary-section,
     .proof-strip ul,
     .experience header {
       grid-template-columns: 1fr;
     }
 
+    .identity {
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .cv-photo {
+      width: 82px;
+      border-radius: 8px;
+    }
+
     h1 {
-      font-size: clamp(3rem, 14vw, 4.4rem);
+      font-size: clamp(2.05rem, 12vw, 3rem);
     }
 
     .meta {
@@ -537,14 +569,14 @@ const education = [
 
   @page {
     size: A4;
-    margin: 6mm;
+    margin: 0;
   }
 
   @media print {
     body {
       background: white;
-      font-size: 7.15pt;
-      line-height: 1.18;
+      font-size: 7.35pt;
+      line-height: 1.16;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -554,50 +586,67 @@ const education = [
     }
 
     .cv-page {
-      width: 100%;
+      width: 210mm;
+      min-height: auto;
       margin: 0;
-      padding: 0;
+      padding: 7mm;
       border: 0;
       border-radius: 0;
     }
 
     .cv-header {
-      grid-template-columns: minmax(0, 1fr) 50mm;
-      gap: 5mm;
-      padding-bottom: 2.8mm;
+      grid-template-columns: minmax(0, 1fr) 47mm;
+      gap: 4mm;
+      padding-bottom: 2.7mm;
       border-bottom-width: 2px;
     }
 
+    .identity {
+      grid-template-columns: 20mm minmax(0, 1fr);
+      gap: 3mm;
+    }
+
+    .cv-photo {
+      width: 20mm;
+      border-radius: 2mm;
+    }
+
     h1 {
-      font-size: 25pt;
+      font-size: 19pt;
     }
 
     .headline {
-      margin-top: 1.6mm;
-      font-size: 8.6pt;
+      margin-top: 0.8mm;
+      font-size: 7.75pt;
     }
 
     .summary {
-      margin-top: 1.5mm;
+      margin-top: 0;
     }
 
     .contact {
-      padding: 2.2mm;
-      gap: 1mm;
+      padding: 1.9mm;
+      gap: 0.85mm;
       border-radius: 2mm;
+      font-size: 6.75pt;
     }
 
     .eyebrow {
-      margin-bottom: 1.6mm;
-      padding: 0.8mm 1.4mm;
-      font-size: 6.6pt;
+      margin-bottom: 0.75mm;
+      padding: 0.55mm 1mm;
+      font-size: 5.8pt;
       border-radius: 1.6mm;
     }
 
+    .summary-section {
+      margin-top: 2.4mm;
+      grid-template-columns: 20mm minmax(0, 1fr);
+      gap: 3mm;
+    }
+
     .proof-strip {
-      margin-top: 2.8mm;
-      padding: 2mm;
-      border-radius: 2mm;
+      margin-top: 2.3mm;
+      padding: 1.8mm 0;
     }
 
     .proof-strip h2 {
@@ -605,65 +654,65 @@ const education = [
     }
 
     .proof-strip ul {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1mm 3mm;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65mm 3mm;
     }
 
     .cv-grid {
-      margin-top: 3mm;
-      grid-template-columns: minmax(0, 1.64fr) 55mm;
-      gap: 4.5mm;
+      margin-top: 2.5mm;
+      grid-template-columns: minmax(0, 1.62fr) 44mm;
+      gap: 4mm;
     }
 
     h2 {
-      font-size: 7.1pt;
+      font-size: 6.9pt;
     }
 
     h3 {
-      font-size: 7.9pt;
+      font-size: 7.35pt;
     }
 
     .experience-list {
-      margin-top: 1.5mm;
-      gap: 1.3mm;
+      margin-top: 1.2mm;
+      gap: 0.9mm;
     }
 
     .experience {
-      padding-bottom: 1.3mm;
+      padding-bottom: 0.9mm;
       break-inside: avoid;
     }
 
     .experience header {
-      grid-template-columns: minmax(0, 1fr) 24mm;
-      gap: 2.5mm;
+      grid-template-columns: minmax(0, 1fr) 22mm;
+      gap: 1.8mm;
     }
 
     .experience ul,
     .compact-list {
-      margin-top: 1mm;
-      gap: 0.55mm;
+      margin-top: 0.65mm;
+      gap: 0.38mm;
     }
 
     .intro {
-      margin-top: 0.9mm;
+      margin-top: 0.55mm;
     }
 
     .side-column {
-      gap: 2mm;
+      gap: 1.25mm;
     }
 
     .skill-list {
-      gap: 1.2mm;
+      gap: 0.8mm;
     }
 
     .skill-list section {
-      padding: 1.4mm;
+      padding: 1mm;
       border-radius: 1.5mm;
     }
 
     .skill-list h3 {
-      margin-bottom: 0.7mm;
-      font-size: 7.2pt;
+      margin-bottom: 0.35mm;
+      font-size: 6.9pt;
     }
 
     .experience li,

@@ -4,6 +4,9 @@ dist/
 .playwright-*.png
 .playwright-prod-*.png
 .DS_Store
+*.xlsx
+*.xls
+*.csv
 
 # Local agent and design work files
 .agents/

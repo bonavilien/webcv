@@ -6,6 +6,11 @@ type Props = {
 };
 
 const { experience } = Astro.props;
+const mobileBulletLimit =
+  experience.organization === "KEDGE Business School" &&
+  experience.title.startsWith("Content Manager")
+    ? 3
+    : 2;
 ---
 
 <article class="experience-item">
@@ -17,7 +22,11 @@ const { experience } = Astro.props;
     <h3>{experience.title}</h3>
     <p>{experience.organization}</p>
     <ul>
-      {experience.bullets.map((bullet) => <li>{bullet}</li>)}
+      {experience.bullets.map((bullet, index) => (
+        <li class:list={[index >= mobileBulletLimit && "experience-bullet-mobile-extra"]}>
+          {bullet}
+        </li>
+      ))}
     </ul>
   </div>
 </article>

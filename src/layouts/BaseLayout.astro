@@ -34,7 +34,7 @@ const jsonLd = {
     "SEO",
     "Media planning",
     "Generative AI",
-    "Prompt engineering",
+    "AI workflows",
   ],
 };
 ---
@@ -62,6 +62,7 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta name="keywords" content={seo.keywords.join(", ")} />
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={title} />

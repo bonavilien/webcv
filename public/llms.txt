@@ -1,0 +1,14 @@
+# Julien Bonavita
+
+> CV web de Julien Bonavita, chef de projet marketing et communication à Bordeaux.
+
+Ce site présente un profil hybride contenu, SEO, acquisition, plans médias et IA générative.
+
+## Pages
+
+- [CV web](https://bonavita.fr/) : profil, projets, expériences, approche et contact.
+
+## Contact
+
+- Email : julien@bonavita.fr
+- LinkedIn : https://www.linkedin.com/in/julienbonavita

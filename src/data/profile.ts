@@ -65,7 +65,7 @@ export const proofSignals = [
   },
   {
     value: "IA",
-    label: "référent prompt engineering et usages génératifs côté Content",
+    label: "référent IA et usages génératifs côté Content",
   },
   {
     value: "990",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
   {
     title: "Mur des alumni PGE",
     kind: "Web & admissibles",
-    role: "Coding from scratch et valorisation alumni",
+    role: "Page codée from scratch et mise en avant alumni",
     context:
       "Page custom pour le site admissibles, pensée comme preuve sociale autour des diplômés et du ROI du programme.",
     image: "images/projects/mur-alumni.webp",
@@ -105,9 +105,9 @@ export const projects: Project[] = [
   {
     title: "Interview Enes Kanter Freedom",
     kind: "Interview & storytelling",
-    role: "Interview publique, préparation éditoriale et valorisation événementielle",
+    role: "Interview publique, préparation éditoriale et mise en récit événementielle",
     context:
-      "Interview menée devant une assemblée sur le campus, autour du leadership, de l'engagement et des valeurs institutionnelles.",
+      "Interview menée devant une assemblée sur le campus, autour du leadership, de l'engagement et des valeurs KEDGE.",
     image: "images/projects/enes-kanter-interview.webp",
     imageAlt:
       "Enes Kanter Freedom interviewé sur scène lors d'un événement KEDGE.",
@@ -136,7 +136,7 @@ export const experiences: Experience[] = [
       "Construction et déploiement de plans de communication multicanaux pour Parcoursup, concours, admissibles, salons et JPO.",
       "Pilotage de plans médias pour les programmes Post-Bac et PGE : briefs, contenus sponsorisés, vidéos, insertions et bilans de campagne.",
       "Production de contenus de conversion : pages programmes, brochures, articles SEO, emailings, marketing automation, quiz, vidéos et supports terrain.",
-      "Optimisation SEO des contenus programmes et coordination transverse avec les équipes programmes, commerciales, digitales, RP, social media, vidéo, graphisme et partenaires.",
+      "Optimisation SEO des contenus programmes et travail transverse avec les équipes programmes, commerciales, digitales, RP, social media, vidéo, graphisme et partenaires.",
       "Reporting, recommandations d'optimisation et accompagnement des usages IA appliqués à la communication au sein de l'équipe content.",
     ],
   },
@@ -157,8 +157,8 @@ export const experiences: Experience[] = [
     period: "Août 2021 - novembre 2021",
     location: "Les Sables-d'Olonne",
     bullets: [
-      "Direction de l'équipe communication et coordination des partenaires externes.",
-      "Supervision des plannings, suivi des KPI et amélioration de la qualité des rendus.",
+      "Direction de l'équipe communication et pilotage des partenaires externes.",
+      "Supervision des plannings, suivi des KPI et hausse de la qualité des rendus.",
       "Rationalisation des campagnes, optimisation du ROI et développement de partenariats influenceurs.",
     ],
   },
@@ -179,7 +179,7 @@ export const experiences: Experience[] = [
     period: "Mars 2018 - août 2018",
     location: "Paris",
     bullets: [
-      "Gestion opérationnelle des relations médias pour les clients de l'agence.",
+      "Gestion des relations médias pour les clients de l'agence.",
       "Rédaction de communiqués, contenus éditoriaux et supports social media.",
       "Suivi des retombées presse, archivage des coupures et préparation de reportings clients.",
     ],
@@ -205,7 +205,7 @@ export const skills: SkillGroup[] = [
     solved:
       "Renforcer la visibilité organique et les parcours de conversion sur des pages à enjeu commercial.",
     tools: [
-      "YourTextGuru",
+      "Guides SEO",
       "Contenus Parcoursup",
       "Requêtes prioritaires",
       "CMS",
@@ -214,15 +214,15 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    title: "IA & automatisation",
+    title: "IA & workflows",
     solved:
-      "Structurer les workflows, cadrer les prompts et automatiser les tâches répétitives sans déléguer le jugement éditorial.",
+      "Structurer les workflows, cadrer les prompts et réduire les tâches répétitives sans déléguer le jugement éditorial.",
     tools: [
       "ChatGPT",
       "Claude",
       "Cursor",
       "Codex CLI",
-      "Prompt engineering",
+      "Prompts IA",
       "Veille IA",
     ],
   },
@@ -269,8 +269,7 @@ export const contactLinks: Link[] = [
 ];
 
 export const seo = {
-  title:
-    "Julien Bonavita - Chef de projet marketing & communication, Content SEO & IA",
+  title: "Julien Bonavita | Content, SEO & IA",
   description:
     "CV de Julien Bonavita, chef de projet marketing & communication à Bordeaux : content, SEO, acquisition, plans médias et IA générative.",
   keywords: [

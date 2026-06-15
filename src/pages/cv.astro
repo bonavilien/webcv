@@ -1,0 +1,681 @@
+---
+import { profile } from "@/data/profile";
+
+const pdfHref = "/cv-julien-bonavita.pdf";
+
+const kedgeBullets = [
+  "Construction et déploiement de plans de communication multicanaux pour Parcoursup, concours, admissibles, salons et JPO.",
+  "Pilotage de plans médias pour les programmes Post-Bac et PGE : briefs, contenus sponsorisés, vidéos, insertions et bilans.",
+  "Production de contenus de conversion : pages programmes, brochures, articles SEO, emailings, marketing automation, quiz, vidéos et supports terrain.",
+  "Optimisation SEO des contenus programmes et travail avec les équipes programmes, commerciales, digitales, RP, social media, vidéo, graphisme et partenaires.",
+  "Référent IA au sein de l'équipe content : veille, bonnes pratiques, cadrage de prompts et usages appliqués à la communication.",
+];
+
+const experiences = [
+  {
+    title: "Content Manager - Programmes, acquisition & plans médias",
+    organization: "KEDGE Business School",
+    period: "Sept. 2022 - aujourd'hui",
+    location: "Bordeaux, hybride",
+    intro:
+      "Communication de programmes à fort enjeu de recrutement : Programme Grande École, KEDGE Bachelor, International BBA, EBP International, concours et admissibles.",
+    bullets: kedgeBullets,
+  },
+  {
+    title: "Chargé des relations média",
+    organization: "KEDGE Business School",
+    period: "Fév. 2022 - janv. 2023",
+    location: "Bordeaux",
+    bullets: [
+      "Rédaction et diffusion de communiqués, dossiers de presse et éléments de langage.",
+      "Organisation d'événements RP : conférences, voyages de presse et rencontres journalistes.",
+      "Développement des relations médias, suivi de la couverture presse et mise à jour des outils RP.",
+    ],
+  },
+  {
+    title: "Responsable marketing et communication",
+    organization: "Aïoli Digital",
+    period: "Août 2021 - nov. 2021",
+    location: "Les Sables-d'Olonne",
+    bullets: [
+      "Direction de l'équipe communication et pilotage des partenaires externes.",
+      "Supervision des plannings, suivi des KPI et hausse de la qualité des rendus.",
+      "Rationalisation des campagnes, optimisation du ROI et développement de partenariats influenceurs.",
+    ],
+  },
+  {
+    title: "Chargé de communication & marketing",
+    organization: "Greek Boys Choice Foods",
+    period: "Juil. 2019 - mars 2020",
+    location: "Tarpon Springs, Floride, USA",
+    bullets: [
+      "Création de supports promotionnels print et digitaux : flyers, newsletters, étiquettes et contenus web.",
+      "Actions marketing B2B, contenus web et campagnes email via Mailchimp en environnement anglophone.",
+    ],
+  },
+  {
+    title: "Assistant chargé de relations presse",
+    organization: "Warning Up",
+    period: "Mars 2018 - août 2018",
+    location: "Paris",
+    bullets: [
+      "Gestion des relations médias, rédaction de communiqués et contenus éditoriaux, suivi des retombées presse.",
+    ],
+  },
+];
+
+const highlights = [
+  "Plans médias concours pilotés pour plus de 250 000 euros.",
+  "Brochures, pages web, emailings, vidéos, supports salons et contenus admissibles.",
+  "Optimisation SEO de pages programmes et contenus à enjeu de recrutement.",
+  "Anglais bilingue : TOEIC 990/990, TOEFL 105/120.",
+];
+
+const projects = [
+  "Mur des alumni PGE : page custom codée from scratch pour le site admissibles KEDGE.",
+  "Brochure PGE KEDGE : architecture éditoriale, squelette et contenus.",
+  "Interview Enes Kanter Freedom : préparation éditoriale et interview publique sur campus.",
+  "Shooting photo Forum APHEC : photos reprises dans un support Major Prépa.",
+];
+
+const skills = [
+  {
+    title: "Contenu & communication",
+    items: ["Stratégie éditoriale", "Rédaction web", "Brochures", "Scripts vidéo", "Newsletters", "Éléments de langage"],
+  },
+  {
+    title: "SEO & acquisition",
+    items: ["SEO éditorial", "Pages programmes", "Reporting", "Plans médias", "Contenus sponsorisés", "Analyse de performance"],
+  },
+  {
+    title: "IA & outils",
+    items: ["ChatGPT", "Claude", "Cursor", "Codex CLI", "Prompts IA", "Workflows"],
+  },
+  {
+    title: "Tech & environnements",
+    items: ["Astro", "CMS", "Linux", "Docker", "Self-hosting", "Outils web"],
+  },
+];
+
+const education = [
+  "Master Communication - Audencia SciencesCom, Nantes, 2020",
+  "Semestre à l'étranger - University of North Florida, Jacksonville, USA, 2018",
+  "Licence Langue et Culture Étrangère - Université de Nantes, 2016",
+  "Cabin Crew Attestation - Aeroschool, Nantes, 2015",
+];
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV Julien Bonavita | Marketing, Content, SEO & IA</title>
+    <meta
+      name="description"
+      content="CV HTML de Julien Bonavita, chef de projet marketing et communication à Bordeaux : content, SEO, acquisition, plans médias et IA générative."
+    />
+    <link rel="canonical" href={new URL("/cv/", Astro.site ?? Astro.url.origin)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="screen-actions" aria-label="Actions CV">
+      <a href="/" class="ghost-link">Retour au site</a>
+      <a href={pdfHref} class="download-link" download>Télécharger le PDF A4</a>
+    </div>
+
+    <main class="cv-page" aria-label="CV Julien Bonavita">
+      <header class="cv-header">
+        <div>
+          <p class="eyebrow">CV - Marketing, content, SEO & IA</p>
+          <h1>Julien Bonavita</h1>
+          <p class="headline">
+            Chef de projet marketing & communication | Content, SEO, acquisition, plans médias & IA générative
+          </p>
+          <p class="summary">
+            Professionnel de la communication basé à Bordeaux, je transforme des enjeux business en dispositifs éditoriaux clairs, utiles et mesurables. Chez KEDGE Business School, je pilote des contenus et plans de communication pour des programmes à fort enjeu de recrutement, avec une approche orientée acquisition, SEO, reporting et usages IA.
+          </p>
+        </div>
+        <address class="contact">
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={profile.linkedin}>linkedin.com/in/julienbonavita</a>
+          <span>Bordeaux / Talence</span>
+          <span>Anglais bilingue - TOEIC 990/990</span>
+        </address>
+      </header>
+
+      <section class="cv-section proof-strip" aria-labelledby="preuves-title">
+        <h2 id="preuves-title">Réalisations clés</h2>
+        <ul>
+          {highlights.map((highlight) => <li>{highlight}</li>)}
+        </ul>
+      </section>
+
+      <div class="cv-grid">
+        <section class="main-column" aria-labelledby="experience-title">
+          <h2 id="experience-title">Expérience professionnelle</h2>
+          <div class="experience-list">
+            {experiences.map((experience) => (
+              <article class="experience">
+                <header>
+                  <div>
+                    <h3>{experience.title}</h3>
+                    <p>{experience.organization}</p>
+                  </div>
+                  <p class="meta">{experience.period}<br />{experience.location}</p>
+                </header>
+                {experience.intro && <p class="intro">{experience.intro}</p>}
+                <ul>
+                  {experience.bullets.map((bullet) => <li>{bullet}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <aside class="side-column" aria-label="Compétences, projets et formation">
+          <section class="cv-section">
+            <h2>Compétences</h2>
+            <div class="skill-list">
+              {skills.map((group) => (
+                <section>
+                  <h3>{group.title}</h3>
+                  <p>{group.items.join(" · ")}</p>
+                </section>
+              ))}
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2>Projets sélectionnés</h2>
+            <ul class="compact-list">
+              {projects.map((project) => <li>{project}</li>)}
+            </ul>
+          </section>
+
+          <section class="cv-section">
+            <h2>Formation</h2>
+            <ul class="compact-list">
+              {education.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+
+          <section class="cv-section">
+            <h2>Langues & intérêts</h2>
+            <p>
+              Français natif. Anglais bilingue. Culture tech, IA, course à pied, photographie, aviation.
+            </p>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    --cv-bg: oklch(0.965 0.012 305);
+    --cv-paper: oklch(1 0 0);
+    --cv-ink: oklch(0.17 0.035 305);
+    --cv-muted: oklch(0.39 0.04 305);
+    --cv-line: oklch(0.84 0.025 305);
+    --cv-primary: oklch(0.2 0.08 306);
+    --cv-accent: oklch(0.54 0.19 285);
+    --cv-soft: oklch(0.93 0.05 304);
+    --cv-on-dark: oklch(0.985 0 0);
+    --font:
+      Manrope, Aptos, "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    color: var(--cv-ink);
+    background: var(--cv-bg);
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  ul {
+    margin: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .screen-actions {
+    width: min(1120px, calc(100% - 32px));
+    margin: 22px auto 14px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .screen-actions a {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .ghost-link {
+    color: var(--cv-primary);
+    border: 1px solid var(--cv-line);
+    background: var(--cv-paper);
+  }
+
+  .download-link {
+    color: var(--cv-on-dark);
+    background: var(--cv-accent);
+  }
+
+  .cv-page {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto 40px;
+    padding: 34px;
+    background: var(--cv-paper);
+    border: 1px solid var(--cv-line);
+    border-radius: 12px;
+  }
+
+  .cv-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 28px;
+    align-items: start;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--cv-primary);
+  }
+
+  .eyebrow {
+    width: fit-content;
+    margin-bottom: 10px;
+    padding: 0.28rem 0.46rem;
+    color: var(--cv-on-dark);
+    background: var(--cv-accent);
+    border-radius: 8px;
+    font-size: 0.76rem;
+    font-weight: 850;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 7vw, 5.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+  }
+
+  .headline {
+    max-width: 72ch;
+    margin-top: 12px;
+    font-size: 1.13rem;
+    font-weight: 850;
+  }
+
+  .summary {
+    max-width: 86ch;
+    margin-top: 12px;
+    color: var(--cv-muted);
+  }
+
+  .contact {
+    padding: 14px;
+    display: grid;
+    gap: 7px;
+    color: var(--cv-on-dark);
+    background: var(--cv-primary);
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 760;
+  }
+
+  .contact a {
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .proof-strip {
+    margin-top: 18px;
+    padding: 14px;
+    color: var(--cv-on-dark);
+    background: var(--cv-accent);
+    border-radius: 8px;
+  }
+
+  .proof-strip h2 {
+    color: var(--cv-on-dark);
+  }
+
+  .proof-strip ul {
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 18px;
+  }
+
+  .proof-strip li {
+    color: oklch(0.94 0.025 285);
+    font-weight: 720;
+  }
+
+  .cv-grid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.58fr) minmax(270px, 0.82fr);
+    gap: 28px;
+  }
+
+  h2 {
+    color: var(--cv-primary);
+    font-size: 0.92rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  h3 {
+    font-size: 1.02rem;
+    line-height: 1.12;
+  }
+
+  .experience-list {
+    margin-top: 12px;
+    display: grid;
+    gap: 13px;
+  }
+
+  .experience {
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--cv-line);
+  }
+
+  .experience:last-child {
+    border-bottom: 0;
+  }
+
+  .experience header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 142px;
+    gap: 16px;
+  }
+
+  .experience header p:not(.meta) {
+    margin-top: 3px;
+    color: var(--cv-muted);
+    font-weight: 780;
+  }
+
+  .meta {
+    color: var(--cv-accent);
+    font-size: 0.78rem;
+    font-weight: 850;
+    text-align: right;
+  }
+
+  .intro {
+    margin-top: 7px;
+    color: var(--cv-muted);
+  }
+
+  .experience ul,
+  .compact-list {
+    margin-top: 8px;
+    display: grid;
+    gap: 5px;
+  }
+
+  .experience li,
+  .compact-list li {
+    position: relative;
+    padding-left: 12px;
+  }
+
+  .experience li::before,
+  .compact-list li::before {
+    content: "";
+    position: absolute;
+    top: 0.58em;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background: var(--cv-accent);
+    border-radius: 999px;
+  }
+
+  .side-column {
+    display: grid;
+    gap: 16px;
+    align-content: start;
+  }
+
+  .cv-section {
+    min-width: 0;
+  }
+
+  .cv-section h2 + * {
+    margin-top: 8px;
+  }
+
+  .skill-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .skill-list section {
+    padding: 10px;
+    background: var(--cv-soft);
+    border-radius: 8px;
+  }
+
+  .skill-list h3 {
+    margin-bottom: 5px;
+    font-size: 0.92rem;
+  }
+
+  .skill-list p,
+  .cv-section p {
+    color: var(--cv-muted);
+  }
+
+  @media (max-width: 760px) {
+    .screen-actions,
+    .cv-page {
+      width: min(100% - 22px, 620px);
+    }
+
+    .screen-actions {
+      margin-top: 12px;
+      justify-content: stretch;
+    }
+
+    .screen-actions a {
+      flex: 1;
+      font-size: 0.86rem;
+    }
+
+    .cv-page {
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    .cv-header,
+    .cv-grid,
+    .proof-strip ul,
+    .experience header {
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 14vw, 4.4rem);
+    }
+
+    .meta {
+      text-align: left;
+    }
+  }
+
+  @page {
+    size: A4;
+    margin: 6mm;
+  }
+
+  @media print {
+    body {
+      background: white;
+      font-size: 7.15pt;
+      line-height: 1.18;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .screen-actions {
+      display: none;
+    }
+
+    .cv-page {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .cv-header {
+      grid-template-columns: minmax(0, 1fr) 50mm;
+      gap: 5mm;
+      padding-bottom: 2.8mm;
+      border-bottom-width: 2px;
+    }
+
+    h1 {
+      font-size: 25pt;
+    }
+
+    .headline {
+      margin-top: 1.6mm;
+      font-size: 8.6pt;
+    }
+
+    .summary {
+      margin-top: 1.5mm;
+    }
+
+    .contact {
+      padding: 2.2mm;
+      gap: 1mm;
+      border-radius: 2mm;
+    }
+
+    .eyebrow {
+      margin-bottom: 1.6mm;
+      padding: 0.8mm 1.4mm;
+      font-size: 6.6pt;
+      border-radius: 1.6mm;
+    }
+
+    .proof-strip {
+      margin-top: 2.8mm;
+      padding: 2mm;
+      border-radius: 2mm;
+    }
+
+    .proof-strip h2 {
+      font-size: 7pt;
+    }
+
+    .proof-strip ul {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1mm 3mm;
+    }
+
+    .cv-grid {
+      margin-top: 3mm;
+      grid-template-columns: minmax(0, 1.64fr) 55mm;
+      gap: 4.5mm;
+    }
+
+    h2 {
+      font-size: 7.1pt;
+    }
+
+    h3 {
+      font-size: 7.9pt;
+    }
+
+    .experience-list {
+      margin-top: 1.5mm;
+      gap: 1.3mm;
+    }
+
+    .experience {
+      padding-bottom: 1.3mm;
+      break-inside: avoid;
+    }
+
+    .experience header {
+      grid-template-columns: minmax(0, 1fr) 24mm;
+      gap: 2.5mm;
+    }
+
+    .experience ul,
+    .compact-list {
+      margin-top: 1mm;
+      gap: 0.55mm;
+    }
+
+    .intro {
+      margin-top: 0.9mm;
+    }
+
+    .side-column {
+      gap: 2mm;
+    }
+
+    .skill-list {
+      gap: 1.2mm;
+    }
+
+    .skill-list section {
+      padding: 1.4mm;
+      border-radius: 1.5mm;
+    }
+
+    .skill-list h3 {
+      margin-bottom: 0.7mm;
+      font-size: 7.2pt;
+    }
+
+    .experience li,
+    .compact-list li {
+      padding-left: 2.5mm;
+    }
+
+    .experience li::before,
+    .compact-list li::before {
+      top: 0.5em;
+      width: 2.2px;
+      height: 2.2px;
+    }
+  }
+</style>

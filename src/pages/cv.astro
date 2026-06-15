@@ -112,11 +112,6 @@ const education = [
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <div class="screen-actions" aria-label="Actions CV">
-      <a href="/" class="ghost-link">Retour au site</a>
-      <a href={pdfHref} class="download-link" download>Télécharger le PDF A4</a>
-    </div>
-
     <main class="cv-page" aria-label="CV Julien Bonavita">
       <header class="cv-header">
         <div class="identity">
@@ -133,6 +128,10 @@ const education = [
           <a href={profile.linkedin}>linkedin.com/in/julienbonavita</a>
           <span>Bordeaux / Talence</span>
         </address>
+        <nav class="screen-actions" aria-label="Actions CV">
+          <a href="/" class="ghost-link">Retour au site</a>
+          <a href={pdfHref} class="download-link" download>Télécharger le PDF A4</a>
+        </nav>
       </header>
 
       <section class="cv-section summary-section" aria-labelledby="profil-title">
@@ -171,7 +170,7 @@ const education = [
           </div>
         </section>
 
-        <aside class="side-column" aria-label="Compétences, projets et formation">
+        <aside class="side-column" aria-label="Compétences, formation et langues">
           <section class="cv-section">
             <h2>Compétences</h2>
             <div class="skill-list">
@@ -205,15 +204,16 @@ const education = [
 
 <style>
   :root {
-    --cv-bg: oklch(0.965 0.012 305);
+    --cv-bg: oklch(0.975 0.008 305);
     --cv-paper: oklch(1 0 0);
     --cv-ink: oklch(0.17 0.035 305);
-    --cv-muted: oklch(0.39 0.04 305);
+    --cv-muted: oklch(0.34 0.035 305);
     --cv-line: oklch(0.84 0.025 305);
     --cv-primary: oklch(0.2 0.08 306);
     --cv-accent: oklch(0.54 0.19 285);
-    --cv-soft: oklch(0.93 0.05 304);
+    --cv-soft: oklch(0.955 0.025 304);
     --cv-on-dark: oklch(0.985 0 0);
+    --font-display: "Aptos Display", "Segoe UI Variable Display", "Arial Narrow", sans-serif;
     --font:
       Manrope, Aptos, "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
       Arial, sans-serif;
@@ -228,12 +228,14 @@ const education = [
     color: var(--cv-ink);
     background: var(--cv-bg);
     font-family: var(--font);
-    font-size: 12.5px;
-    line-height: 1.32;
+    font-size: 1rem;
+    line-height: 1.55;
+    font-kerning: normal;
   }
 
   a {
     color: inherit;
+    text-underline-offset: 0.18em;
   }
 
   h1,
@@ -249,25 +251,26 @@ const education = [
   }
 
   li {
-    list-style: none;
+    margin-left: 1.1rem;
+    padding-left: 0.1rem;
   }
 
   .screen-actions {
-    width: min(1120px, calc(100% - 32px));
-    margin: 22px auto 14px;
+    margin-top: 1.1rem;
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 0.6rem;
   }
 
   .screen-actions a {
-    min-height: 40px;
+    min-height: 42px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.65rem 0.85rem;
+    padding: 0.65rem 0.9rem;
     border-radius: 8px;
-    font-weight: 850;
+    font-size: 0.92rem;
+    font-weight: 760;
     text-decoration: none;
   }
 
@@ -279,38 +282,31 @@ const education = [
 
   .download-link {
     color: var(--cv-on-dark);
-    background: var(--cv-accent);
+    background: var(--cv-primary);
   }
 
   .cv-page {
-    width: min(210mm, calc(100% - 32px));
-    min-height: 297mm;
-    margin: 0 auto 40px;
-    padding: 13mm;
+    width: min(100% - 28px, 880px);
+    margin: 0 auto;
+    padding: 1.25rem 0 3rem;
     background: var(--cv-paper);
-    border: 1px solid var(--cv-line);
-    border-radius: 6px;
   }
 
   .cv-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 57mm;
-    gap: 8mm;
-    align-items: start;
-    padding-bottom: 5mm;
+    padding: 1.2rem 0 1.35rem;
     border-bottom: 2px solid var(--cv-primary);
   }
 
   .identity {
     min-width: 0;
     display: grid;
-    grid-template-columns: 24mm minmax(0, 1fr);
-    gap: 5mm;
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 1rem;
     align-items: center;
   }
 
   .cv-photo {
-    width: 24mm;
+    width: 78px;
     aspect-ratio: 1;
     display: block;
     object-fit: cover;
@@ -321,51 +317,50 @@ const education = [
   }
 
   h1 {
-    font-size: clamp(2rem, 4.4vw, 2.65rem);
-    line-height: 0.94;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 11vw, 3.15rem);
+    line-height: 0.92;
     letter-spacing: -0.025em;
+    text-wrap: balance;
   }
 
   .headline {
-    max-width: 72ch;
-    margin-top: 6px;
-    font-size: 0.94rem;
-    font-weight: 850;
+    max-width: 58ch;
+    margin-top: 0.55rem;
+    font-size: 1rem;
+    font-weight: 760;
+    line-height: 1.25;
+    text-wrap: pretty;
   }
 
   .summary {
-    max-width: 86ch;
+    max-width: 66ch;
     color: var(--cv-muted);
   }
 
   .contact {
-    padding: 4mm;
+    margin-top: 1rem;
+    padding: 0;
     display: grid;
-    gap: 1.7mm;
-    color: var(--cv-on-dark);
-    background: var(--cv-primary);
-    border-radius: 7px;
+    gap: 0.25rem;
+    color: var(--cv-ink);
     font-style: normal;
-    font-size: 0.88rem;
-    font-weight: 760;
+    font-size: 0.96rem;
+    font-weight: 650;
   }
 
   .contact a {
-    text-decoration: none;
     overflow-wrap: anywhere;
+    text-decoration: none;
   }
 
   .summary-section {
-    margin-top: 3.5mm;
-    display: grid;
-    grid-template-columns: 23mm minmax(0, 1fr);
-    gap: 5mm;
-    align-items: start;
+    margin-top: 1.35rem;
   }
 
   .proof-strip {
-    margin-top: 3.8mm;
-    padding: 3mm 0;
+    margin-top: 1.45rem;
+    padding: 1.05rem 0;
     border-top: 1px solid var(--cv-line);
     border-bottom: 1px solid var(--cv-line);
   }
@@ -375,45 +370,48 @@ const education = [
   }
 
   .proof-strip ul {
-    margin-top: 1.8mm;
+    margin-top: 0.7rem;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.2mm 5mm;
+    gap: 0.45rem;
   }
 
   .proof-strip li {
+    margin-left: 1rem;
     color: var(--cv-ink);
-    font-weight: 720;
+    font-weight: 700;
   }
 
   .cv-grid {
-    margin-top: 4.2mm;
+    margin-top: 1.55rem;
     display: grid;
-    grid-template-columns: minmax(0, 1.54fr) minmax(43mm, 0.8fr);
-    gap: 6.5mm;
+    gap: 1.65rem;
   }
 
   h2 {
+    font-family: var(--font-display);
     color: var(--cv-primary);
-    font-size: 0.92rem;
-    font-weight: 900;
+    font-size: 0.86rem;
+    font-weight: 820;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.045em;
   }
 
   h3 {
-    font-size: 1.02rem;
-    line-height: 1.12;
+    font-family: var(--font-display);
+    font-size: 1.13rem;
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
   .experience-list {
-    margin-top: 2.2mm;
+    margin-top: 0.8rem;
     display: grid;
-    gap: 2mm;
+    gap: 1rem;
   }
 
   .experience {
-    padding-bottom: 2mm;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--cv-line);
   }
 
@@ -423,56 +421,37 @@ const education = [
 
   .experience header {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 28mm;
-    gap: 3.5mm;
+    gap: 0.35rem;
   }
 
   .experience header p:not(.meta) {
-    margin-top: 3px;
+    margin-top: 0.12rem;
     color: var(--cv-muted);
-    font-weight: 780;
+    font-weight: 760;
   }
 
   .meta {
     color: var(--cv-accent);
-    font-size: 0.78rem;
-    font-weight: 850;
-    text-align: right;
+    font-size: 0.92rem;
+    font-weight: 780;
   }
 
   .intro {
-    margin-top: 1.1mm;
+    max-width: 68ch;
+    margin-top: 0.55rem;
     color: var(--cv-muted);
   }
 
   .experience ul,
   .compact-list {
-    margin-top: 1.4mm;
+    margin-top: 0.55rem;
     display: grid;
-    gap: 0.9mm;
-  }
-
-  .experience li,
-  .compact-list li {
-    position: relative;
-    padding-left: 12px;
-  }
-
-  .experience li::before,
-  .compact-list li::before {
-    content: "";
-    position: absolute;
-    top: 0.58em;
-    left: 0;
-    width: 4px;
-    height: 4px;
-    background: var(--cv-accent);
-    border-radius: 999px;
+    gap: 0.35rem;
   }
 
   .side-column {
     display: grid;
-    gap: 3mm;
+    gap: 1.35rem;
     align-content: start;
   }
 
@@ -481,23 +460,22 @@ const education = [
   }
 
   .cv-section h2 + * {
-    margin-top: 1.6mm;
+    margin-top: 0.65rem;
   }
 
   .skill-list {
     display: grid;
-    gap: 1.6mm;
+    gap: 0.65rem;
   }
 
   .skill-list section {
-    padding: 1.8mm;
-    background: var(--cv-soft);
-    border-radius: 6px;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--cv-line);
   }
 
   .skill-list h3 {
-    margin-bottom: 5px;
-    font-size: 0.92rem;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
   }
 
   .skill-list p,
@@ -505,52 +483,111 @@ const education = [
     color: var(--cv-muted);
   }
 
-  @media (max-width: 760px) {
-    .screen-actions,
+  @media (max-width: 480px) {
     .cv-page {
-      width: min(100% - 22px, 620px);
+      width: min(100% - 18px, 620px);
+      padding-top: 0.7rem;
     }
 
-    .screen-actions {
-      margin-top: 12px;
-      justify-content: stretch;
-    }
-
-    .screen-actions a {
-      flex: 1;
-      font-size: 0.86rem;
-    }
-
-    .cv-page {
-      padding: 18px;
-      border-radius: 10px;
-      min-height: 0;
-    }
-
-    .cv-header,
-    .cv-grid,
-    .summary-section,
-    .proof-strip ul,
-    .experience header {
-      grid-template-columns: 1fr;
+    .cv-header {
+      padding-top: 0.75rem;
     }
 
     .identity {
-      grid-template-columns: 82px minmax(0, 1fr);
-      gap: 14px;
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: 0.75rem;
     }
 
     .cv-photo {
-      width: 82px;
-      border-radius: 8px;
+      width: 56px;
     }
 
     h1 {
-      font-size: clamp(2.05rem, 12vw, 3rem);
+      font-size: clamp(2rem, 10vw, 2.55rem);
+    }
+
+    .headline {
+      font-size: 0.88rem;
+      line-height: 1.18;
+    }
+
+    .contact {
+      font-size: 0.9rem;
+    }
+
+    .screen-actions {
+      margin-top: 0.85rem;
+    }
+
+    .screen-actions a {
+      flex: 1 1 150px;
+      font-size: 0.82rem;
+    }
+  }
+
+  @media (min-width: 760px) {
+    body {
+      background: var(--cv-bg);
+    }
+
+    .cv-page {
+      padding-top: 2rem;
+    }
+
+    .cv-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .identity {
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+
+    .cv-photo {
+      width: 96px;
+    }
+
+    .contact {
+      margin-top: 0;
+      justify-self: end;
+      max-width: 280px;
+      text-align: right;
+    }
+
+    .screen-actions {
+      grid-column: 1 / -1;
+      justify-content: flex-end;
+      margin-top: 0.2rem;
+    }
+
+    .summary-section {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .proof-strip ul {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.45rem 1.6rem;
+    }
+
+    .cv-grid {
+      grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.72fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .experience header {
+      grid-template-columns: minmax(0, 1fr) 170px;
+      gap: 1rem;
     }
 
     .meta {
-      text-align: left;
+      text-align: right;
     }
   }
 
@@ -562,8 +599,8 @@ const education = [
   @media print {
     body {
       background: white;
-      font-size: 7.35pt;
-      line-height: 1.16;
+      font-size: 8.35pt;
+      line-height: 1.25;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -576,57 +613,74 @@ const education = [
       width: 210mm;
       min-height: auto;
       margin: 0;
-      padding: 7mm;
+      padding: 9mm;
+      background: white;
       border: 0;
       border-radius: 0;
     }
 
     .cv-header {
-      grid-template-columns: minmax(0, 1fr) 47mm;
-      gap: 4mm;
-      padding-bottom: 2.7mm;
-      border-bottom-width: 2px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 50mm;
+      gap: 5mm;
+      align-items: start;
+      padding: 0 0 3.4mm;
+      border-bottom: 2px solid var(--cv-primary);
     }
 
     .identity {
-      grid-template-columns: 20mm minmax(0, 1fr);
-      gap: 3mm;
+      grid-template-columns: 24mm minmax(0, 1fr);
+      gap: 4mm;
     }
 
     .cv-photo {
-      width: 20mm;
+      width: 24mm;
       border-radius: 2mm;
     }
 
     h1 {
-      font-size: 19pt;
+      font-size: 23pt;
+      line-height: 0.92;
     }
 
     .headline {
-      margin-top: 0.8mm;
-      font-size: 7.75pt;
+      margin-top: 1mm;
+      font-size: 8.2pt;
+      line-height: 1.2;
+      max-width: 54ch;
     }
 
     .summary {
       margin-top: 0;
+      max-width: 70ch;
     }
 
     .contact {
-      padding: 1.9mm;
-      gap: 0.85mm;
+      margin-top: 0;
+      padding: 2.3mm;
+      display: grid;
+      gap: 1mm;
+      color: var(--cv-on-dark);
+      background: var(--cv-primary);
       border-radius: 2mm;
-      font-size: 6.75pt;
+      font-size: 7.25pt;
+      text-align: left;
+    }
+
+    .contact a {
+      text-decoration: none;
     }
 
     .summary-section {
-      margin-top: 2.4mm;
-      grid-template-columns: 20mm minmax(0, 1fr);
-      gap: 3mm;
+      margin-top: 3mm;
+      display: grid;
+      grid-template-columns: 24mm minmax(0, 1fr);
+      gap: 4mm;
     }
 
     .proof-strip {
-      margin-top: 2.3mm;
-      padding: 1.8mm 0;
+      margin-top: 3mm;
+      padding: 2.3mm 0;
     }
 
     .proof-strip h2 {
@@ -639,72 +693,77 @@ const education = [
     }
 
     .cv-grid {
-      margin-top: 2.5mm;
-      grid-template-columns: minmax(0, 1.62fr) 44mm;
-      gap: 4mm;
+      margin-top: 3mm;
+      display: grid;
+      grid-template-columns: minmax(0, 1.58fr) 48mm;
+      gap: 5mm;
     }
 
     h2 {
-      font-size: 6.9pt;
+      font-size: 7.25pt;
     }
 
     h3 {
-      font-size: 7.35pt;
+      font-size: 8pt;
     }
 
     .experience-list {
-      margin-top: 1.2mm;
-      gap: 0.9mm;
+      margin-top: 1.5mm;
+      gap: 1.15mm;
     }
 
     .experience {
-      padding-bottom: 0.9mm;
+      padding-bottom: 1.15mm;
       break-inside: avoid;
     }
 
     .experience header {
-      grid-template-columns: minmax(0, 1fr) 22mm;
-      gap: 1.8mm;
+      grid-template-columns: minmax(0, 1fr) 25mm;
+      gap: 2mm;
+    }
+
+    .experience header p:not(.meta) {
+      margin-top: 0.35mm;
+    }
+
+    .meta {
+      font-size: 7pt;
+      text-align: right;
     }
 
     .experience ul,
     .compact-list {
-      margin-top: 0.65mm;
-      gap: 0.38mm;
+      margin-top: 0.85mm;
+      gap: 0.52mm;
     }
 
     .intro {
-      margin-top: 0.55mm;
+      margin-top: 0.75mm;
     }
 
     .side-column {
-      gap: 1.25mm;
+      gap: 1.7mm;
     }
 
     .skill-list {
-      gap: 0.8mm;
+      gap: 1mm;
     }
 
     .skill-list section {
-      padding: 1mm;
-      border-radius: 1.5mm;
+      padding: 0 0 1mm;
+      background: transparent;
+      border-bottom: 1px solid var(--cv-line);
     }
 
     .skill-list h3 {
-      margin-bottom: 0.35mm;
-      font-size: 6.9pt;
+      margin-bottom: 0.45mm;
+      font-size: 7.25pt;
     }
 
     .experience li,
     .compact-list li {
-      padding-left: 2.5mm;
-    }
-
-    .experience li::before,
-    .compact-list li::before {
-      top: 0.5em;
-      width: 2.2px;
-      height: 2.2px;
+      margin-left: 2.3mm;
+      padding-left: 0.4mm;
     }
   }
 </style>

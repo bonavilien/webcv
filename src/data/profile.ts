@@ -41,7 +41,7 @@ export const profile = {
   value:
     "Je transforme des enjeux business en dispositifs éditoriaux clairs, mesurables et activables sur plusieurs canaux.",
   tags: ["Content", "SEO", "Acquisition", "Plans médias", "IA générative"],
-  portrait: "/images/portrait.webp",
+  portrait: "images/portrait.webp",
   email: "julien@bonavita.fr",
   linkedin: "https://www.linkedin.com/in/julienbonavita",
   status: "Disponible pour échanger sur des rôles communication, marketing contenu, acquisition ou produit.",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
       "Page custom pour le site admissibles, pensée comme preuve sociale autour des diplômés et du ROI du programme.",
     proof:
       "Une preuve sociale publique qui rend les trajectoires alumni plus concrètes pour les candidats.",
-    image: "/images/projects/mur-alumni.webp",
+    image: "images/projects/mur-alumni.webp",
     imageAlt:
       "Capture de la page Mur des alumni du site admissibles KEDGE PGE.",
     link: "https://admissibles.kedge.edu/pge/preparer-ma-venue/nos-diplomes",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
       "Refonte d'un support central pour présenter le Programme Grande École, ses parcours, ses preuves et ses messages clés.",
     proof:
       "Un support commercial plus clair pour présenter un programme complexe pendant les temps forts de recrutement.",
-    image: "/images/projects/brochure-pge.webp",
+    image: "images/projects/brochure-pge.webp",
     imageAlt:
       "Première page de la brochure PGE KEDGE.",
     link: "https://brochure.kedge.edu/pge.pdf",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
       "Interview menée devant une assemblée sur le campus, autour du leadership, de l'engagement et des valeurs institutionnelles.",
     proof:
       "Un temps fort incarné en public, avec une ligne éditoriale claire et exploitable par l'événement.",
-    image: "/images/projects/enes-kanter-interview.webp",
+    image: "images/projects/enes-kanter-interview.webp",
     imageAlt:
       "Enes Kanter Freedom interviewé sur scène lors d'un événement KEDGE.",
     competences: ["Interview", "Événementiel", "Storytelling"],
@@ -128,7 +128,7 @@ export const projects: Project[] = [
       "Photos réalisées lors d'un forum prépa, reprises dans un support média Major Prépa dédié aux écrits.",
     proof:
       "Une couverture terrain réutilisée par un média partenaire sur un temps fort admissions.",
-    image: "/images/projects/forum-aphec-major.webp",
+    image: "images/projects/forum-aphec-major.webp",
     imageAlt:
       "Double page du Major avec des photos du forum APHEC réalisées sur le terrain.",
     competences: ["Shooting photo", "Événementiel", "Média partenaire"],

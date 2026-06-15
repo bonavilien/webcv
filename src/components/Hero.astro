@@ -1,12 +1,5 @@
 ---
-import { existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
 import { profile } from "@/data/profile";
-
-const portraitPath = fileURLToPath(
-  new URL("../../public/images/portrait.webp", import.meta.url),
-);
-const hasPortrait = existsSync(portraitPath);
 ---
 
 <section class="hero" data-section="hero" aria-labelledby="hero-title">
@@ -34,22 +27,14 @@ const hasPortrait = existsSync(portraitPath);
 
     <aside class="hero-panel" aria-label="Résumé rapide">
       <div class="portrait-frame">
-        {
-          hasPortrait ? (
-            <img
-              src={profile.portrait}
-              alt="Portrait de Julien Bonavita"
-              width="900"
-              height="900"
-              decoding="async"
-              fetchpriority="high"
-            />
-          ) : (
-            <div class="portrait-fallback" aria-hidden="true">
-              <span>{profile.initials}</span>
-            </div>
-          )
-        }
+        <img
+          src={profile.portrait}
+          alt="Portrait de Julien Bonavita"
+          width="900"
+          height="900"
+          decoding="async"
+          fetchpriority="high"
+        />
       </div>
       <div class="availability">
         <span>Disponible pour échanger</span>

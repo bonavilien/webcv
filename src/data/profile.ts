@@ -8,7 +8,6 @@ export type Project = {
   kind: string;
   role: string;
   context: string;
-  proof: string;
   image: string;
   imageAlt: string;
   imagePosition?: string;
@@ -81,8 +80,6 @@ export const projects: Project[] = [
     role: "Coding from scratch et valorisation alumni",
     context:
       "Page custom pour le site admissibles, pensée comme preuve sociale autour des diplômés et du ROI du programme.",
-    proof:
-      "Une preuve sociale publique qui rend les trajectoires alumni plus concrètes pour les candidats.",
     image: "images/projects/mur-alumni.webp",
     imageAlt:
       "Capture de la page Mur des alumni du site admissibles KEDGE PGE.",
@@ -97,8 +94,6 @@ export const projects: Project[] = [
     role: "Architecture éditoriale, squelette et contenus",
     context:
       "Refonte d'un support central pour présenter le Programme Grande École, ses parcours, ses preuves et ses messages clés.",
-    proof:
-      "Un support commercial plus clair pour présenter un programme complexe pendant les temps forts de recrutement.",
     image: "images/projects/brochure-pge.webp",
     imageAlt:
       "Première page de la brochure PGE KEDGE.",
@@ -113,8 +108,6 @@ export const projects: Project[] = [
     role: "Interview publique, préparation éditoriale et valorisation événementielle",
     context:
       "Interview menée devant une assemblée sur le campus, autour du leadership, de l'engagement et des valeurs institutionnelles.",
-    proof:
-      "Un temps fort incarné en public, avec une ligne éditoriale claire et exploitable par l'événement.",
     image: "images/projects/enes-kanter-interview.webp",
     imageAlt:
       "Enes Kanter Freedom interviewé sur scène lors d'un événement KEDGE.",
@@ -126,8 +119,6 @@ export const projects: Project[] = [
     role: "Shooting photo terrain et production visuelle",
     context:
       "Photos réalisées lors d'un forum prépa, reprises dans un support média Major Prépa dédié aux écrits.",
-    proof:
-      "Une couverture terrain réutilisée par un média partenaire sur un temps fort admissions.",
     image: "images/projects/forum-aphec-major.webp",
     imageAlt:
       "Double page du Major avec des photos du forum APHEC réalisées sur le terrain.",

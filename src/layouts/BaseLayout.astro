@@ -97,7 +97,17 @@ const jsonLd = {
             aria-label="Activer le mode sombre"
             aria-pressed="false"
           >
-            <span data-theme-label>Mode sombre</span>
+            <span class="theme-icon theme-icon-sun" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95-6.95 1.41-1.41M3.64 20.36l1.41-1.41m0-13.9L3.64 3.64m16.72 16.72-1.41-1.41M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon-moon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M20.5 14.5A7.5 7.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z"></path>
+              </svg>
+            </span>
+            <span class="sr-only" data-theme-label>Mode sombre</span>
           </button>
         </div>
       </nav>

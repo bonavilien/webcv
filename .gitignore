@@ -1,0 +1,25 @@
+node_modules/
+dist/
+.astro/
+.playwright-*.png
+.playwright-prod-*.png
+.DS_Store
+
+# Local agent and design work files
+.agents/
+.impeccable/
+tmp/
+
+# Private project context, not for public repository
+AGENTS.md
+PROFIL.md
+LINKEDIN_CV_SYNTHESE.md
+ENTRETIENS_SYNTHESE.md
+entretiens_tous.md
+
+# Source assets kept locally; optimized public assets live in public/images/
+portrait.png
+brochure PGE.png
+interview.jpg
+photosmajor.jpg
+mur alumni.png

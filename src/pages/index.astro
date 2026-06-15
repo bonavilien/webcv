@@ -1,0 +1,104 @@
+---
+import About from "@/components/About.astro";
+import ContactLinks from "@/components/ContactLinks.astro";
+import ExperienceItem from "@/components/ExperienceItem.astro";
+import Hero from "@/components/Hero.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import SignalStrip from "@/components/SignalStrip.astro";
+import SkillMatrix from "@/components/SkillMatrix.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { experiences, projects } from "@/data/profile";
+---
+
+<BaseLayout>
+  <div id="top"></div>
+  <Hero />
+  <SignalStrip />
+
+  <section id="projets" class="section section-projects" data-section="projects">
+    <div class="section-inner">
+      <SectionHeader
+        label="Projets"
+        title="Des livrables visibles."
+        description="Pages web, brochures, interviews, shooting photo : la déclinaison d'une expertise en contenu, acquisition et prise de parole."
+      />
+      <div class="project-grid">
+        {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="experiences" class="section section-experience" data-section="experience">
+    <div class="section-inner experience-layout">
+      <SectionHeader
+        label="Expériences"
+        title="Une trajectoire communication, médias et contenus."
+        description="Des expériences orientées contenus, plans médias, relations presse, coordination transverse et production de supports à fort enjeu."
+      />
+      <div class="timeline" aria-label="Expériences professionnelles">
+        {experiences.map((experience) => <ExperienceItem experience={experience} />)}
+      </div>
+    </div>
+  </section>
+
+  <SkillMatrix />
+  <About />
+  <ContactLinks />
+</BaseLayout>
+
+<script>
+  const projectSection = document.querySelector<HTMLElement>("#projets");
+  const projectCards = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-project-card]"),
+  );
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let frame = 0;
+
+  const resetProjectParallax = () => {
+    projectCards.forEach((card) => {
+      card.style.removeProperty("--project-y");
+      card.style.removeProperty("--project-image-y");
+    });
+  };
+
+  const updateProjectParallax = () => {
+    frame = 0;
+
+    if (!projectSection || motionQuery.matches || window.innerWidth < 720) {
+      resetProjectParallax();
+      return;
+    }
+
+    const viewportCenter = window.innerHeight / 2;
+
+    projectCards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      if (rect.bottom < -120 || rect.top > window.innerHeight + 120) return;
+
+      const depth = Number.parseFloat(
+        getComputedStyle(card).getPropertyValue("--project-depth"),
+      );
+      const cardCenter = rect.top + rect.height / 2;
+      const progress = Math.max(
+        -1,
+        Math.min(1, (viewportCenter - cardCenter) / window.innerHeight),
+      );
+      const cardShift = progress * depth;
+      const imageShift = progress * depth * -1.45;
+
+      card.style.setProperty("--project-y", `${cardShift.toFixed(2)}px`);
+      card.style.setProperty("--project-image-y", `${imageShift.toFixed(2)}px`);
+    });
+  };
+
+  const scheduleProjectParallax = () => {
+    if (frame) return;
+    frame = window.requestAnimationFrame(updateProjectParallax);
+  };
+
+  updateProjectParallax();
+  window.addEventListener("scroll", scheduleProjectParallax, { passive: true });
+  window.addEventListener("resize", scheduleProjectParallax);
+  motionQuery.addEventListener("change", updateProjectParallax);
+</script>

@@ -1,0 +1,22 @@
+---
+import { contactLinks } from "@/data/profile";
+---
+
+<section id="contact" class="section section-contact" data-section="contact">
+  <div class="section-inner contact-panel">
+    <div>
+      <p class="section-label">Contact</p>
+      <h2>Échangeons sur vos besoins communication et marketing.</h2>
+      <p>
+        Vous pouvez me contacter par email ou LinkedIn pour parler contenu, acquisition, plans médias, SEO ou projet éditorial.
+      </p>
+    </div>
+    <address class="contact-links" aria-label="Coordonnées">
+      {contactLinks.map((link) => (
+        <a href={link.href} data-cta={`contact-${link.label.toLowerCase()}`}>
+          {link.label}
+        </a>
+      ))}
+    </address>
+  </div>
+</section>

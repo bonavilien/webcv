@@ -1,0 +1,52 @@
+---
+import { about } from "@/data/profile";
+import SectionHeader from "@/components/SectionHeader.astro";
+
+const icons = {
+  tech: {
+    label: "Tech",
+    path: "M4 7h16v10H4z M8 3v4 M12 3v4 M16 3v4 M8 17v4 M12 17v4 M16 17v4 M2 10h2 M2 14h2 M20 10h2 M20 14h2",
+  },
+  ai: {
+    label: "IA",
+    path: "M12 3l1.7 5.1L19 10l-5.3 1.9L12 17l-1.7-5.1L5 10l5.3-1.9z M5 15l.8 2.2L8 18l-2.2.8L5 21l-.8-2.2L2 18l2.2-.8z M19 3l.8 2.2L22 6l-2.2.8L19 9l-.8-2.2L16 6l2.2-.8z",
+  },
+  sport: {
+    label: "Sport",
+    path: "M13 5a2 2 0 1 0-2-2 2 2 0 0 0 2 2z M7 21l3-6 2-3 3 3 2 6 M6 10l4-2 3 2 4 1 M10 15l-4-2",
+  },
+} as const;
+---
+
+<section id="a-propos" class="section section-about" data-section="about">
+  <div class="section-inner about-layout">
+    <SectionHeader
+      label="À propos"
+      title="Ce qui me fait avancer : méthode, tech et endurance."
+    />
+    <div class="about-copy">
+      <p>{about.body}</p>
+      <ul class="about-notes">
+        {
+          about.notes.map((note) => {
+            const icon = icons[note.icon as keyof typeof icons];
+
+            return (
+              <li>
+                <span class="about-note-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d={icon.path}></path>
+                  </svg>
+                </span>
+                <span>
+                  <strong>{note.title}</strong>
+                  <span>{note.text}</span>
+                </span>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
+</section>

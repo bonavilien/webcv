@@ -1,0 +1,23 @@
+---
+import type { Experience } from "@/data/profile";
+
+type Props = {
+  experience: Experience;
+};
+
+const { experience } = Astro.props;
+---
+
+<article class="experience-item">
+  <div class="experience-meta">
+    <p>{experience.period}</p>
+    <span>{experience.location}</span>
+  </div>
+  <div class="experience-body">
+    <h3>{experience.title}</h3>
+    <p>{experience.organization}</p>
+    <ul>
+      {experience.bullets.map((bullet) => <li>{bullet}</li>)}
+    </ul>
+  </div>
+</article>

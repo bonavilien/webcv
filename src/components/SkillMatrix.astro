@@ -1,0 +1,25 @@
+---
+import { skills } from "@/data/profile";
+import SectionHeader from "@/components/SectionHeader.astro";
+---
+
+<section id="competences" class="section section-skills" data-section="skills">
+  <div class="section-inner">
+    <SectionHeader
+      label="Compétences"
+      title="Des compétences reliées à des usages concrets."
+      description="Contenu, SEO, acquisition, IA et environnements techniques : des compétences mobilisées sur des livrables concrets."
+    />
+    <div class="skill-matrix">
+      {skills.map((group) => (
+        <article class="skill-group">
+          <h3>{group.title}</h3>
+          <p>{group.solved}</p>
+          <ul>
+            {group.tools.map((tool) => <li>{tool}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

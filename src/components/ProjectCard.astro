@@ -1,0 +1,82 @@
+---
+import type { Project } from "@/data/profile";
+
+type Props = {
+  project: Project;
+  index: number;
+};
+
+const { project, index } = Astro.props;
+const projectLink = project.link;
+const projectLinkLabel = project.linkLabel;
+const hasLink = Boolean(projectLink && projectLinkLabel);
+const isExternal = Boolean(projectLink?.startsWith("http"));
+const depth = [18, -10, 14, -8, 12][index] ?? 10;
+---
+
+<article
+  class:list={["project-card", project.featured && "project-card-featured"]}
+  data-project-card
+  style={`--project-depth: ${depth}px; --project-image-position: ${project.imagePosition ?? "50% 50%"}`}
+>
+  {
+    hasLink && projectLink && projectLinkLabel ? (
+      <a
+        class="project-media"
+        href={projectLink}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        aria-label={`${projectLinkLabel} : ${project.title}`}
+      >
+        <img
+          src={project.image}
+          alt={project.imageAlt}
+          width="1200"
+          height="760"
+          loading="eager"
+          decoding="async"
+          fetchpriority={project.featured ? "high" : "auto"}
+        />
+      </a>
+    ) : (
+      <div class="project-media">
+        <img
+          src={project.image}
+          alt={project.imageAlt}
+          width="1200"
+          height="760"
+          loading="eager"
+          decoding="async"
+          fetchpriority={project.featured ? "high" : "auto"}
+        />
+      </div>
+    )
+  }
+  <div class="project-card-body">
+    <div class="project-card-top">
+      <p>{project.kind}</p>
+      <h3>{project.title}</h3>
+    </div>
+    <p class="project-role">{project.role}</p>
+    <p class="project-context">{project.context}</p>
+    <p class="project-proof">{project.proof}</p>
+    <div class="project-card-footer">
+      <ul class="tool-list" aria-label={`Compétences pour ${project.title}`}>
+        {project.competences.map((competence) => <li>{competence}</li>)}
+      </ul>
+      {
+        hasLink && projectLink && projectLinkLabel && (
+          <a
+            class="project-link"
+            href={projectLink}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            data-cta={`project-${project.title.toLowerCase().replaceAll(" ", "-")}`}
+          >
+            {projectLinkLabel}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

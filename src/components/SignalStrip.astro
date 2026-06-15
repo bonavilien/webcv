@@ -1,0 +1,20 @@
+---
+import { proofSignals } from "@/data/profile";
+---
+
+<section
+  id="signal-fort"
+  class="signal-strip"
+  data-section="signal"
+  aria-labelledby="signal-title"
+>
+  <h2 id="signal-title" class="sr-only">Signal fort</h2>
+  <div class="signal-inner">
+    {proofSignals.map((signal) => (
+      <article class="signal-item">
+        <strong>{signal.value}</strong>
+        <span>{signal.label}</span>
+      </article>
+    ))}
+  </div>
+</section>

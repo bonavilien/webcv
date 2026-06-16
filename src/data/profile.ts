@@ -40,7 +40,7 @@ export const profile = {
   value:
     "Je transforme des enjeux business en dispositifs éditoriaux clairs, mesurables et activables sur plusieurs canaux.",
   tags: ["Content", "SEO", "Acquisition", "Plans médias", "IA générative"],
-  portrait: "images/portrait.webp",
+  portrait: "images/portrait-hero.webp",
   email: "julien@bonavita.fr",
   linkedin: "https://www.linkedin.com/in/julienbonavita",
   status: "Disponible pour échanger sur des rôles communication, marketing contenu, acquisition ou produit.",

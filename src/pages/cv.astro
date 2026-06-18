@@ -4,11 +4,11 @@ import { profile } from "@/data/profile";
 const pdfHref = "/cv-julien-bonavita.pdf";
 
 const kedgeBullets = [
-  "Construction et déploiement de plans de communication multicanaux pour Parcoursup, concours, admissibles, salons et JPO.",
-  "Pilotage de plans médias pour les programmes Post-Bac et PGE : briefs, contenus sponsorisés, vidéos, insertions et bilans.",
-  "Production de contenus de conversion : pages programmes, brochures, articles SEO, emailings, marketing automation, quiz, vidéos et supports terrain.",
-  "Optimisation SEO des contenus programmes et travail avec les équipes programmes, commerciales, digitales, RP, social media, vidéo, graphisme et partenaires.",
-  "Référent IA au sein de l'équipe content : veille, bonnes pratiques, cadrage de prompts et usages appliqués à la communication.",
+  "Construction de calendriers multicanaux pour Parcoursup, concours, admissibles, salons et JPO.",
+  "Pilotage de budgets médias Post-Bac et PGE : briefs, contenus sponsorisés, vidéos, insertions et bilans.",
+  "Production de supports de conversion : pages, brochures, articles SEO, emailings, quiz, vidéos et outils salons.",
+  "Coordination avec les équipes programmes, commerciales, digital, RP, social media, vidéo, graphisme et partenaires.",
+  "Référent IA pour l’équipe content : veille, prompts et usages appliqués aux workflows.",
 ];
 
 const experiences = [
@@ -18,7 +18,7 @@ const experiences = [
     period: "Sept. 2022 - aujourd'hui",
     location: "Bordeaux, hybride",
     intro:
-      "Communication de programmes à fort enjeu de recrutement : Programme Grande École, KEDGE Bachelor, International BBA, EBP International, concours et admissibles.",
+      "Périmètre : Programme Grande École, KEDGE Bachelor, International BBA, EBP International, concours et admissibles.",
     bullets: kedgeBullets,
   },
   {
@@ -29,7 +29,7 @@ const experiences = [
     bullets: [
       "Rédaction et diffusion de communiqués, dossiers de presse et éléments de langage.",
       "Organisation d'événements RP : conférences, voyages de presse et rencontres journalistes.",
-      "Développement des relations médias, suivi de la couverture presse et mise à jour des outils RP.",
+      "Suivi des journalistes, de la couverture presse et des outils RP.",
     ],
   },
   {
@@ -38,9 +38,9 @@ const experiences = [
     period: "Août 2021 - nov. 2021",
     location: "Les Sables-d'Olonne",
     bullets: [
-      "Direction de l'équipe communication et pilotage des partenaires externes.",
-      "Supervision des plannings, suivi des KPI et hausse de la qualité des rendus.",
-      "Rationalisation des campagnes, optimisation du ROI et développement de partenariats influenceurs.",
+      "Encadrement de l’équipe communication et des partenaires externes.",
+      "Suivi des plannings, des KPI et de la qualité des livrables.",
+      "Optimisation des campagnes et développement de partenariats influenceurs.",
     ],
   },
   {
@@ -49,8 +49,8 @@ const experiences = [
     period: "Juil. 2019 - mars 2020",
     location: "Tarpon Springs, Floride, USA",
     bullets: [
-      "Création de supports promotionnels print et digitaux : flyers, newsletters, étiquettes et contenus web.",
-      "Actions marketing B2B, contenus web et campagnes email via Mailchimp en environnement anglophone.",
+      "Création de flyers, newsletters, étiquettes produits et pages web.",
+      "Actions B2B et campagnes Mailchimp en anglais.",
     ],
   },
   {
@@ -59,33 +59,33 @@ const experiences = [
     period: "Mars 2018 - août 2018",
     location: "Paris",
     bullets: [
-      "Gestion des relations médias, rédaction de communiqués et contenus éditoriaux, suivi des retombées presse.",
+      "Contacts journalistes, communiqués et suivi des retombées presse.",
     ],
   },
 ];
 
 const highlights = [
-  "Plans médias concours pilotés pour plus de 250 000 euros.",
-  "Brochures, pages web, emailings, vidéos, supports salons et contenus admissibles.",
-  "Optimisation SEO de pages programmes et contenus à enjeu de recrutement.",
+  "Plus de 250 000 euros de budget média concours piloté.",
+  "Pages web, brochures, emailings, vidéos et supports salons produits pour les temps forts.",
+  "Optimisation SEO de pages liées aux admissions et aux programmes.",
   "Anglais bilingue : TOEIC 990/990, TOEFL 105/120.",
 ];
 
 const skills = [
   {
-    title: "Contenu & communication",
+    title: "Contenu",
     items: ["Stratégie éditoriale", "Rédaction web", "Brochures", "Scripts vidéo", "Newsletters", "Éléments de langage"],
   },
   {
-    title: "SEO & acquisition",
+    title: "SEO / acquisition",
     items: ["SEO éditorial", "Pages programmes", "Reporting", "Plans médias", "Contenus sponsorisés", "Analyse de performance"],
   },
   {
-    title: "IA & outils",
+    title: "IA",
     items: ["ChatGPT", "Claude", "Cursor", "Codex CLI", "Prompts IA", "Workflows"],
   },
   {
-    title: "Tech & environnements",
+    title: "Environnements",
     items: ["Astro", "CMS", "Linux", "Docker", "Self-hosting", "Outils web"],
   },
 ];
@@ -103,10 +103,10 @@ const education = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CV Julien Bonavita | Marketing, Content, SEO & IA</title>
+    <title>CV Julien Bonavita | Marketing, contenu, SEO & acquisition</title>
     <meta
       name="description"
-      content="CV HTML de Julien Bonavita, chef de projet marketing et communication à Bordeaux : content, SEO, acquisition, plans médias et IA générative."
+      content="CV HTML de Julien Bonavita, chef de projet marketing et communication à Bordeaux : contenu, SEO, acquisition et plans médias."
     />
     <link rel="canonical" href={new URL("/cv/", Astro.site ?? Astro.url.origin)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -119,7 +119,7 @@ const education = [
           <div>
             <h1>Julien Bonavita</h1>
             <p class="headline">
-              Chef de projet marketing & communication | Content, SEO, acquisition, plans médias & IA générative
+              Chef de projet marketing & communication | Contenu, SEO, acquisition & plans médias
             </p>
           </div>
         </div>
@@ -137,7 +137,7 @@ const education = [
       <section class="cv-section summary-section" aria-labelledby="profil-title">
         <h2 id="profil-title">Profil</h2>
         <p class="summary">
-          Professionnel de la communication basé à Bordeaux, je transforme des enjeux business en dispositifs éditoriaux clairs, utiles et mesurables. Chez KEDGE Business School, je pilote des contenus et plans de communication pour des programmes à fort enjeu de recrutement, avec une approche orientée acquisition, SEO, reporting et usages IA.
+          Basé à Bordeaux, je construis des supports et campagnes pour aider des publics à comprendre une offre, comparer leurs options et passer à l’action. Chez KEDGE Business School, je travaille sur des programmes à fort enjeu de recrutement, avec une attention portée au SEO, au reporting et aux usages IA.
         </p>
       </section>
 
@@ -193,7 +193,7 @@ const education = [
           <section class="cv-section">
             <h2>Langues & intérêts</h2>
             <p>
-              Français natif. Anglais bilingue. Culture tech, IA, course à pied, photographie, aviation.
+              Français natif. Anglais bilingue. Tech, course à pied, photographie, aviation.
             </p>
           </section>
         </aside>

@@ -36,14 +36,14 @@ export const profile = {
   initials: "JB",
   location: "Bordeaux, France",
   title: "Chef de projet marketing & communication",
-  subtitle: "Content, SEO, acquisition, plans médias & IA générative",
+  subtitle: "Contenu, SEO, acquisition, plans médias & IA",
   value:
-    "Je transforme des enjeux business en dispositifs éditoriaux clairs, mesurables et activables sur plusieurs canaux.",
-  tags: ["Content", "SEO", "Acquisition", "Plans médias", "IA générative"],
+    "Je clarifie les messages, produis les bons supports et mesure ce qui aide le recrutement à avancer.",
+  tags: ["Contenu", "SEO", "Acquisition", "Plans médias", "IA"],
   portrait: "images/portrait-hero.webp",
   email: "julien@bonavita.fr",
   linkedin: "https://www.linkedin.com/in/julienbonavita",
-  status: "Disponible pour échanger sur des rôles communication, marketing contenu, acquisition ou produit.",
+  status: "Ouvert à des postes marketing, contenu, acquisition ou produit.",
 } as const;
 
 export const navigation = [
@@ -57,19 +57,19 @@ export const navigation = [
 export const proofSignals = [
   {
     value: "250k€+",
-    label: "plans médias concours pilotés pour les programmes KEDGE",
+    label: "budget média concours piloté chez KEDGE",
   },
   {
     value: "SEO",
-    label: "contenus Parcoursup, pages programmes et requêtes à enjeu",
+    label: "pages programmes et requêtes de recrutement",
   },
   {
     value: "IA",
-    label: "référent IA et usages génératifs côté Content",
+    label: "référent IA pour l’équipe Content",
   },
   {
     value: "990",
-    label: "TOEIC, anglais bilingue en contexte international",
+    label: "TOEIC 990/990",
   },
 ];
 
@@ -77,9 +77,9 @@ export const projects: Project[] = [
   {
     title: "Mur des alumni PGE",
     kind: "Web & admissibles",
-    role: "Page codée from scratch et mise en avant alumni",
+    role: "Développement front et preuve sociale alumni",
     context:
-      "Page custom pour le site admissibles, pensée comme preuve sociale autour des diplômés et du ROI du programme.",
+      "Module admissibles conçu pour montrer des parcours diplômés et donner du concret aux candidats.",
     image: "images/projects/mur-alumni.webp",
     imageAlt:
       "Capture de la page Mur des alumni du site admissibles KEDGE PGE.",
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     kind: "Brochure & contenus",
     role: "Architecture éditoriale, squelette et contenus",
     context:
-      "Refonte d'un support central pour présenter le Programme Grande École, ses parcours, ses preuves et ses messages clés.",
+      "Support de recrutement structuré pour rendre le Programme Grande École plus lisible pendant les temps forts.",
     image: "images/projects/brochure-pge.webp",
     imageAlt:
       "Première page de la brochure PGE KEDGE.",
@@ -105,9 +105,9 @@ export const projects: Project[] = [
   {
     title: "Interview Enes Kanter Freedom",
     kind: "Interview & storytelling",
-    role: "Interview publique, préparation éditoriale et mise en récit événementielle",
+    role: "Interview publique et préparation éditoriale",
     context:
-      "Interview menée devant une assemblée sur le campus, autour du leadership, de l'engagement et des valeurs KEDGE.",
+      "Échange mené sur scène devant les étudiants et candidats, avec un angle leadership et engagement.",
     image: "images/projects/enes-kanter-interview.webp",
     imageAlt:
       "Enes Kanter Freedom interviewé sur scène lors d'un événement KEDGE.",
@@ -116,9 +116,9 @@ export const projects: Project[] = [
   {
     title: "Shooting photo Forum APHEC",
     kind: "Shooting photo & média partenaire",
-    role: "Shooting photo terrain et production visuelle",
+    role: "Prise de vue terrain",
     context:
-      "Photos réalisées lors d'un forum prépa, reprises dans un support média Major Prépa dédié aux écrits.",
+      "Reportage photo réalisé pendant le forum APHEC, puis repris dans Le Major de Major Prépa.",
     image: "images/projects/forum-aphec-major.webp",
     imageAlt:
       "Double page du Major avec des photos du forum APHEC réalisées sur le terrain.",
@@ -133,11 +133,11 @@ export const experiences: Experience[] = [
     period: "Septembre 2022 - aujourd'hui",
     location: "Bordeaux, hybride",
     bullets: [
-      "Construction et déploiement de plans de communication multicanaux pour Parcoursup, concours, admissibles, salons et JPO.",
-      "Pilotage de plans médias pour les programmes Post-Bac et PGE : briefs, contenus sponsorisés, vidéos, insertions et bilans de campagne.",
-      "Production de contenus de conversion : pages programmes, brochures, articles SEO, emailings, marketing automation, quiz, vidéos et supports terrain.",
-      "Optimisation SEO des contenus programmes et travail transverse avec les équipes programmes, commerciales, digitales, RP, social media, vidéo, graphisme et partenaires.",
-      "Reporting, recommandations d'optimisation et accompagnement des usages IA appliqués à la communication au sein de l'équipe content.",
+      "Construction de calendriers multicanaux pour Parcoursup, concours, admissibles, salons et JPO.",
+      "Pilotage de budgets médias Post-Bac et PGE : briefs, contenus sponsorisés, vidéos, insertions et bilans.",
+      "Production de supports de conversion : pages, brochures, articles SEO, emailings, quiz, vidéos et outils salons.",
+      "Coordination avec les équipes programmes, commerciales, digital, RP, social media, vidéo, graphisme et partenaires.",
+      "Reporting, recommandations et accompagnement des usages IA dans l’équipe content.",
     ],
   },
   {
@@ -148,7 +148,7 @@ export const experiences: Experience[] = [
     bullets: [
       "Rédaction et diffusion de communiqués, dossiers de presse et éléments de langage.",
       "Organisation d'événements RP : conférences, voyages de presse et rencontres journalistes.",
-      "Développement des relations médias, suivi de la couverture presse et mise à jour des outils RP.",
+      "Suivi des journalistes, de la couverture presse et des outils RP.",
     ],
   },
   {
@@ -157,9 +157,9 @@ export const experiences: Experience[] = [
     period: "Août 2021 - novembre 2021",
     location: "Les Sables-d'Olonne",
     bullets: [
-      "Direction de l'équipe communication et pilotage des partenaires externes.",
-      "Supervision des plannings, suivi des KPI et hausse de la qualité des rendus.",
-      "Rationalisation des campagnes, optimisation du ROI et développement de partenariats influenceurs.",
+      "Encadrement de l’équipe communication et des partenaires externes.",
+      "Suivi des plannings, des KPI et de la qualité des livrables.",
+      "Optimisation des campagnes et développement de partenariats influenceurs.",
     ],
   },
   {
@@ -168,9 +168,9 @@ export const experiences: Experience[] = [
     period: "Juillet 2019 - mars 2020",
     location: "Tarpon Springs, Floride",
     bullets: [
-      "Création de supports promotionnels print et digitaux : flyers, newsletters, étiquettes et contenus web.",
-      "Élaboration d'actions marketing B2B et campagnes email via Mailchimp en environnement anglophone.",
-      "Contribution aux salons professionnels, aux réunions clients et au développement commercial.",
+      "Création de flyers, newsletters, étiquettes produits et pages web.",
+      "Déploiement d’actions B2B et de campagnes Mailchimp en anglais.",
+      "Participation aux salons professionnels et aux rendez-vous clients.",
     ],
   },
   {
@@ -179,9 +179,9 @@ export const experiences: Experience[] = [
     period: "Mars 2018 - août 2018",
     location: "Paris",
     bullets: [
-      "Gestion des relations médias pour les clients de l'agence.",
-      "Rédaction de communiqués, contenus éditoriaux et supports social media.",
-      "Suivi des retombées presse, archivage des coupures et préparation de reportings clients.",
+      "Gestion des contacts journalistes pour les clients de l'agence.",
+      "Rédaction de communiqués, textes éditoriaux et posts sociaux.",
+      "Suivi des retombées, archivage presse et reportings clients.",
     ],
   },
 ];
@@ -190,7 +190,7 @@ export const skills: SkillGroup[] = [
   {
     title: "Contenu & communication",
     solved:
-      "Transformer un message programme ou business en contenus utilisables sur web, email, print, vidéo et terrain.",
+      "Passer d’un message stratégique à des supports prêts à diffuser.",
     tools: [
       "Stratégie éditoriale",
       "Rédaction web",
@@ -203,7 +203,7 @@ export const skills: SkillGroup[] = [
   {
     title: "SEO & acquisition",
     solved:
-      "Renforcer la visibilité organique et les parcours de conversion sur des pages à enjeu commercial.",
+      "Faire remonter les pages utiles et améliorer les points de passage candidats.",
     tools: [
       "Guides SEO",
       "Contenus Parcoursup",
@@ -216,7 +216,7 @@ export const skills: SkillGroup[] = [
   {
     title: "IA & workflows",
     solved:
-      "Structurer les workflows, cadrer les prompts et réduire les tâches répétitives sans déléguer le jugement éditorial.",
+      "Cadrer les prompts, accélérer les brouillons et garder la décision éditoriale côté humain.",
     tools: [
       "ChatGPT",
       "Claude",
@@ -229,7 +229,7 @@ export const skills: SkillGroup[] = [
   {
     title: "Tech & environnements",
     solved:
-      "Comprendre les outils, les contraintes de production et les environnements techniques au-delà de la couche marketing.",
+      "Travailler avec les contraintes web, outils et production sans rester côté brief.",
     tools: [
       "Astro",
       "Linux",
@@ -243,22 +243,22 @@ export const skills: SkillGroup[] = [
 
 export const about = {
   body:
-    "Je suis un profil contenu avec une forte culture outil. La tech, l'IA et la course à pied font partie de mon équilibre : curiosité, méthode, efficacité et régularité. Ce sont aussi des repères dans ma façon de travailler.",
+    "J’avance avec trois moteurs : écrire clair, comprendre les outils et tenir un rythme. La tech m’aide à dialoguer avec les équipes produit ou digital. La course à pied m’apporte une discipline simple : suivre, ajuster, progresser.",
   notes: [
     {
       icon: "tech",
       title: "Culture tech",
-      text: "Goût pour les outils, les environnements web et les sujets techniques qui facilitent le dialogue avec les équipes digitales ou produit.",
+      text: "Une pratique régulière des outils web, utile pour cadrer les sujets avec les équipes digitales ou produit.",
     },
     {
       icon: "ai",
       title: "Usage de l'IA",
-      text: "Un appui quotidien pour cadrer les idées, structurer les workflows et gagner du temps sur les tâches répétitives.",
+      text: "Un usage de travail : cadrage, brouillons, variantes, automatisation légère.",
     },
     {
       icon: "sport",
       title: "Course à pied",
-      text: "Une pratique qui renforce la discipline, la constance et le goût de la progression mesurable.",
+      text: "Un repère de régularité : entraînement, mesure, progression.",
     },
   ],
 };
@@ -269,9 +269,9 @@ export const contactLinks: Link[] = [
 ];
 
 export const seo = {
-  title: "Julien Bonavita | Content, SEO & IA",
+  title: "Julien Bonavita | Contenu, SEO & IA",
   description:
-    "CV de Julien Bonavita, chef de projet marketing & communication à Bordeaux : content, SEO, acquisition, plans médias et IA générative.",
+    "CV de Julien Bonavita, chef de projet marketing et communication à Bordeaux : contenu, SEO, acquisition et plans médias.",
   keywords: [
     "Julien Bonavita",
     "chef de projet marketing communication Bordeaux",

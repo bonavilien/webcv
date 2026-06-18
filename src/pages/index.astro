@@ -21,14 +21,14 @@ import { experiences, projects } from "@/data/profile";
       <SectionHeader
         label="Projets"
         title="Des livrables visibles."
-        description="Pages web, brochures, interviews, shooting photo : la déclinaison d'une expertise en contenu, acquisition et prise de parole."
+        description="Pages web, brochures, interviews, reportages photo : des livrables conçus pour recruter, expliquer et convaincre."
       />
       <div class="project-grid">
         {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
       </div>
       <div class="mobile-project-cta">
-        <p>Besoin de livrables clairs, visibles et pilotés de bout en bout ?</p>
-        <a href="#contact" data-cta="mobile-project-contact">Échanger sur vos besoins</a>
+        <p>Un besoin à cadrer, produire ou rendre plus lisible ?</p>
+        <a href="#contact" data-cta="mobile-project-contact">Me contacter</a>
       </div>
     </div>
   </section>
@@ -37,8 +37,8 @@ import { experiences, projects } from "@/data/profile";
     <div class="section-inner experience-layout">
       <SectionHeader
         label="Expériences"
-        title="Une trajectoire communication, médias et contenus."
-        description="Des expériences orientées contenus, plans médias, relations presse, travail d'équipe et supports à fort enjeu."
+        title="Des rôles entre école, médias et production."
+        description="KEDGE en premier, puis des expériences en agence, RP et B2B international."
       />
       <div class="timeline" aria-label="Expériences professionnelles">
         {experiences.map((experience) => <ExperienceItem experience={experience} />)}

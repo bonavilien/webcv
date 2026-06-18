@@ -243,7 +243,7 @@ export const skills: SkillGroup[] = [
 
 export const about = {
   body:
-    "J’avance avec trois moteurs : écrire clair, comprendre les outils et tenir un rythme. La tech m’aide à dialoguer avec les équipes produit ou digital. La course à pied m’apporte une discipline simple : suivre, ajuster, progresser.",
+    "La tech m’aide à dialoguer avec les équipes produit ou digital. La course à pied m’apporte une discipline simple : suivre, ajuster, progresser.",
   notes: [
     {
       icon: "tech",

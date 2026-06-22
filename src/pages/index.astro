@@ -1,107 +1,181 @@
 ---
-import About from "@/components/About.astro";
-import ContactLinks from "@/components/ContactLinks.astro";
-import ExperienceItem from "@/components/ExperienceItem.astro";
-import Hero from "@/components/Hero.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
-import SectionHeader from "@/components/SectionHeader.astro";
-import SignalStrip from "@/components/SignalStrip.astro";
-import SkillMatrix from "@/components/SkillMatrix.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { experiences, projects } from "@/data/profile";
+import {
+  about,
+  contactLinks,
+  experiences,
+  profile,
+  projects,
+  proofSignals,
+  skills,
+} from "@/data/profile";
+
+const featuredExperience = experiences[0];
+const otherExperiences = experiences.slice(1, 5);
+const projectTiles = projects.map((project) => ({
+  ...project,
+  href: project.link,
+  label: project.linkLabel ?? "Voir",
+}));
 ---
 
 <BaseLayout>
   <div id="top"></div>
-  <Hero />
-  <SignalStrip />
 
-  <section id="projets" class="section section-projects" data-section="projects">
-    <div class="section-inner">
-      <SectionHeader
-        label="Projets"
-        title="Des livrables visibles."
-        description="Pages web, brochures, interviews, reportages photo : des livrables conçus pour recruter, expliquer et convaincre."
-      />
-      <div class="project-grid">
-        {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
-      </div>
-      <div class="mobile-project-cta">
-        <p>Un besoin à cadrer, produire ou rendre plus lisible ?</p>
-        <a href="#contact" data-cta="mobile-project-contact">Me contacter</a>
-      </div>
+  <section class="hero-poster" aria-labelledby="hero-title">
+    <div class="hero-meta">
+      <span>{profile.name}</span>
+      <span>{profile.location}</span>
+    </div>
+    <h1 id="hero-title">
+      <span>Contenu, SEO</span>
+      <span>& acquisition</span>
+      <span>au service du</span>
+      <span>recrutement.</span>
+    </h1>
+    <a class="scroll-cue" href="#projets" aria-label="Voir les projets">
+      <span></span>
+    </a>
+  </section>
+
+  <section id="projets" class="work-wall" aria-labelledby="work-title">
+    <h2 id="work-title" class="sr-only">Projets sélectionnés</h2>
+    <div class="work-grid">
+      <article class="work-tile work-tile-profile">
+        <img src={profile.portrait} alt="Portrait de Julien Bonavita" loading="eager" decoding="async" />
+        <div>
+          <span>Profile</span>
+          <strong>Content SEO Acquisition</strong>
+        </div>
+      </article>
+
+      {
+        projectTiles.map((project) => {
+          const content = (
+            <>
+              <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
+              <div>
+                <span>{project.kind}</span>
+                <strong>{project.title}</strong>
+              </div>
+            </>
+          );
+
+          return project.href ? (
+            <a
+              class="work-tile"
+              href={project.href}
+              target={project.href.startsWith("http") ? "_blank" : undefined}
+              rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              aria-label={`${project.label} : ${project.title}`}
+            >
+              {content}
+            </a>
+          ) : (
+            <article class="work-tile">{content}</article>
+          );
+        })
+      }
+
+      <article class="work-tile work-tile-text">
+        <span>Proof</span>
+        <strong>250k€+</strong>
+        <p>budget média concours piloté chez KEDGE.</p>
+      </article>
     </div>
   </section>
 
-  <section id="experiences" class="section section-experience" data-section="experience">
-    <div class="section-inner experience-layout">
-      <SectionHeader
-        label="Expériences"
-        title="Des rôles entre école, médias et production."
-      />
-      <div class="timeline" aria-label="Expériences professionnelles">
-        {experiences.map((experience) => <ExperienceItem experience={experience} />)}
-      </div>
-    </div>
+  <section class="current-band" aria-labelledby="current-title">
+    <p>Currently</p>
+    <h2 id="current-title">
+      <span>Aider</span>
+      <span>les programmes</span>
+      <span>à recruter.</span>
+    </h2>
+    <a href="#contact">Échangeons</a>
   </section>
 
-  <SkillMatrix />
-  <About />
-  <ContactLinks />
-</BaseLayout>
-
-<script>
-  const projectSection = document.querySelector<HTMLElement>("#projets");
-  const projectCards = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-project-card]"),
-  );
-  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  let frame = 0;
-
-  const resetProjectParallax = () => {
-    projectCards.forEach((card) => {
-      card.style.removeProperty("--project-y");
-      card.style.removeProperty("--project-image-y");
-    });
-  };
-
-  const updateProjectParallax = () => {
-    frame = 0;
-
-    if (!projectSection || motionQuery.matches || window.innerWidth < 720) {
-      resetProjectParallax();
-      return;
+  <section class="proof-band" aria-label="Preuves rapides">
+    {
+      proofSignals.map((signal) => (
+        <article>
+          <strong>{signal.value}</strong>
+          <span>{signal.label}</span>
+        </article>
+      ))
     }
+  </section>
 
-    const viewportCenter = window.innerHeight / 2;
+  <section id="experience" class="experience-board" aria-labelledby="experience-title">
+    <div class="section-heading">
+      <p>Expérience</p>
+      <h2 id="experience-title">Programmes, médias, agence et B2B international.</h2>
+    </div>
 
-    projectCards.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      if (rect.bottom < -120 || rect.top > window.innerHeight + 120) return;
+    <article class="featured-job">
+      <div>
+        <p>{featuredExperience.organization}</p>
+        <h3>{featuredExperience.title}</h3>
+        <span>{featuredExperience.period} · {featuredExperience.location}</span>
+      </div>
+      <ul>
+        {featuredExperience.bullets.slice(0, 3).map((bullet) => <li>{bullet}</li>)}
+      </ul>
+    </article>
 
-      const depth = Number.parseFloat(
-        getComputedStyle(card).getPropertyValue("--project-depth"),
-      );
-      const cardCenter = rect.top + rect.height / 2;
-      const progress = Math.max(
-        -1,
-        Math.min(1, (viewportCenter - cardCenter) / window.innerHeight),
-      );
-      const cardShift = progress * depth;
-      const imageShift = progress * depth * -1.45;
+    <div class="job-list">
+      {
+        otherExperiences.map((experience) => (
+          <article>
+            <div>
+              <h3>{experience.title}</h3>
+              <p>{experience.organization}</p>
+            </div>
+            <span>{experience.period}</span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 
-      card.style.setProperty("--project-y", `${cardShift.toFixed(2)}px`);
-      card.style.setProperty("--project-image-y", `${imageShift.toFixed(2)}px`);
-    });
-  };
+  <section class="skills-board" aria-labelledby="skills-title">
+    <div class="section-heading">
+      <p>Compétences</p>
+      <h2 id="skills-title">Contenu, intention de recherche et workflows IA.</h2>
+    </div>
+    <div class="skills-lines">
+      {
+        skills.map((group) => (
+          <article>
+            <h3>{group.title}</h3>
+            <p>{group.tools.slice(0, 4).join(" · ")}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 
-  const scheduleProjectParallax = () => {
-    if (frame) return;
-    frame = window.requestAnimationFrame(updateProjectParallax);
-  };
+  <section class="about-band" aria-labelledby="about-title">
+    <div>
+      <p>About</p>
+      <h2 id="about-title">Écrire clair. Produire propre. Avancer.</h2>
+    </div>
+    <p>{about.body}</p>
+  </section>
 
-  updateProjectParallax();
-  window.addEventListener("scroll", scheduleProjectParallax, { passive: true });
-  window.addEventListener("resize", scheduleProjectParallax);
-  motionQuery.addEventListener("change", updateProjectParallax);
-</script>
+  <section id="contact" class="contact-poster" aria-labelledby="contact-title">
+    <div>
+      <p>Contact</p>
+      <h2 id="contact-title">
+        <span>Échangeons</span>
+        <span>sur vos besoins</span>
+        <span>communication</span>
+        <span>& marketing.</span>
+      </h2>
+    </div>
+    <address>
+      {contactLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+    </address>
+    <a class="back-top" href="#top">Back to top</a>
+  </section>
+</BaseLayout>

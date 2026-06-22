@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { navigation, profile, seo } from "@/data/profile";
+import { profile, seo } from "@/data/profile";
 
 type Props = {
   title?: string;
@@ -45,19 +45,6 @@ const jsonLd = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <script is:inline>
-      (() => {
-        try {
-          const storedTheme = localStorage.getItem("julien-theme");
-          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          const theme = storedTheme || (prefersDark ? "dark" : "light");
-          document.documentElement.dataset.theme = theme;
-          document.documentElement.style.colorScheme = theme;
-        } catch {
-          document.documentElement.dataset.theme = "light";
-        }
-      })();
-    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={seo.keywords.join(", ")} />
@@ -78,72 +65,16 @@ const jsonLd = {
     <a class="skip-link" href="#contenu">Aller au contenu</a>
     <header class="site-header">
       <nav class="nav-shell" aria-label="Navigation principale">
-        <a class="brand-mark" href="#top" aria-label="Retour en haut">
-          <span aria-hidden="true">JB</span>
-        </a>
-        <div class="nav-actions">
-          <div class="nav-links">
-            {
-              navigation.map((item) => (
-                <a href={item.href} data-nav-link>
-                  {item.label}
-                </a>
-              ))
-            }
-          </div>
-          <button
-            class="theme-toggle"
-            type="button"
-            data-theme-toggle
-            aria-label="Activer le mode sombre"
-            aria-pressed="false"
-          >
-            <span class="theme-icon theme-icon-sun" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95-6.95 1.41-1.41M3.64 20.36l1.41-1.41m0-13.9L3.64 3.64m16.72 16.72-1.41-1.41M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path>
-              </svg>
-            </span>
-            <span class="theme-icon theme-icon-moon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M20.5 14.5A7.5 7.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z"></path>
-              </svg>
-            </span>
-            <span class="sr-only" data-theme-label>Mode sombre</span>
-          </button>
+        <a class="brand-mark" href="#top" aria-label="Retour en haut">JB</a>
+        <div class="nav-links">
+          <a href="#projets">Projets</a>
+          <a href="#experience">Expérience</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
     <main id="contenu">
       <slot />
     </main>
-    <script is:inline>
-      (() => {
-        const root = document.documentElement;
-        const button = document.querySelector("[data-theme-toggle]");
-        const label = document.querySelector("[data-theme-label]");
-        if (!button || !label) return;
-
-        const applyTheme = (theme) => {
-          root.dataset.theme = theme;
-          root.style.colorScheme = theme;
-          try {
-            localStorage.setItem("julien-theme", theme);
-          } catch {}
-
-          const isDark = theme === "dark";
-          button.setAttribute("aria-pressed", String(isDark));
-          button.setAttribute(
-            "aria-label",
-            isDark ? "Activer le mode clair" : "Activer le mode sombre",
-          );
-          label.textContent = isDark ? "Mode clair" : "Mode sombre";
-        };
-
-        applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
-        button.addEventListener("click", () => {
-          applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
-        });
-      })();
-    </script>
   </body>
 </html>

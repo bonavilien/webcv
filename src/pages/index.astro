@@ -10,13 +10,55 @@ import {
   skills,
 } from "@/data/profile";
 
-const featuredExperience = experiences[0];
-const otherExperiences = experiences.slice(1, 5);
-const projectTiles = projects.map((project) => ({
-  ...project,
-  href: project.link,
-  label: project.linkLabel ?? "Voir",
-}));
+const featuredExperience = {
+  ...experiences[0],
+  bullets: [
+    "Construction et déploiement de plans de communication multicanaux : Parcoursup, concours, admissibles, salons, JPO.",
+    "Pilotage de plans médias Post-Bac et PGE : briefs, partenaires, contenus sponsorisés, vidéos, insertions et bilans.",
+    "Production de contenus et supports de conversion : pages programmes, brochures, articles SEO, emailings, market automation, quiz, vidéos et supports salons.",
+    "Optimisation SEO des contenus programmes et production d’articles ciblés sur les requêtes à fort enjeu.",
+    "Coordination avec les équipes programmes, commerciales, marketing digital, RP, social media, vidéo, graphisme et prestataires.",
+    "Reporting, recommandations d’optimisation et accompagnement des usages IA dans l’équipe content.",
+  ],
+};
+
+const otherExperiences = [
+  {
+    ...experiences[1],
+    bullets: [
+      "Rédaction et diffusion de communiqués, dossiers de presse et éléments de langage.",
+      "Organisation d’événements RP : conférences, voyages de presse et rencontres journalistes.",
+      "Développement des relations médias, suivi de la couverture presse et mise à jour des outils RP.",
+    ],
+  },
+  {
+    ...experiences[2],
+    bullets: [
+      "Direction de l’équipe communication et coordination des partenaires externes.",
+      "Supervision des plannings, suivi des KPI et amélioration de la qualité des livrables.",
+      "Rationalisation des campagnes, optimisation du ROI et développement de partenariats influenceurs.",
+    ],
+  },
+  {
+    ...experiences[3],
+    bullets: [
+      "Création de supports print et digitaux : flyers, newsletters, étiquettes produits et contenus web.",
+      "Élaboration d’actions marketing B2B et campagnes Mailchimp en environnement anglophone.",
+      "Participation aux salons professionnels et aux rendez-vous clients pour développer le portefeuille.",
+    ],
+  },
+  {
+    ...experiences[4],
+    bullets: [
+      "Gestion des relations médias des clients de l’agence.",
+      "Rédaction de communiqués, contenus éditoriaux et publications sociales.",
+      "Suivi des retombées presse, archivage et reportings clients.",
+    ],
+  },
+];
+
+const projectThemes = ["alumni", "brochure", "interview", "photo"];
+const profileSignals = proofSignals;
 ---
 
 <BaseLayout>
@@ -28,98 +70,98 @@ const projectTiles = projects.map((project) => ({
       <span>{profile.location}</span>
     </div>
     <h1 id="hero-title">
-      <span>Contenu, SEO</span>
-      <span>& acquisition</span>
-      <span>au service du</span>
-      <span>recrutement.</span>
+      <span>Faire passer</span>
+      <span>les messages</span>
+      <span>du brief</span>
+      <span>au terrain.</span>
     </h1>
-    <a class="scroll-cue" href="#projets" aria-label="Voir les projets">
+    <a class="scroll-cue" href="#profil" aria-label="Voir le profil">
       <span></span>
     </a>
   </section>
 
-  <section id="projets" class="work-wall" aria-labelledby="work-title">
-    <h2 id="work-title" class="sr-only">Projets sélectionnés</h2>
-    <div class="work-grid">
-      <article class="work-tile work-tile-profile">
-        <img src={profile.portrait} alt="Portrait de Julien Bonavita" loading="eager" decoding="async" />
-        <div>
-          <span>Profile</span>
-          <strong>Content SEO Acquisition</strong>
-        </div>
-      </article>
+  <section class="statement-invert" aria-hidden="true">
+    <p>
+      <span>Du brief</span>
+      <span>au terrain.</span>
+    </p>
+  </section>
 
+  <section id="profil" class="profile-feature" aria-labelledby="profile-title">
+    <div class="profile-copy">
+      <p class="section-kicker">Profil</p>
+      <h2 id="profile-title">{profile.title}</h2>
+      <p>
+        Je pilote des contenus, campagnes et supports de conversion avec une approche
+        éditoriale, SEO, acquisition et IA. Mon terrain : clarifier le message, produire
+        les bons formats, coordonner les équipes et mesurer ce qui progresse.
+      </p>
+      <div class="profile-signals" aria-label="Points clés">
+        {
+          profileSignals.map((signal) => (
+            <article>
+              <strong>{signal.value}</strong>
+              <span>{signal.label}</span>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+    <div class="profile-portrait" aria-hidden="true">
+      <img src={profile.portrait} alt="" loading="eager" decoding="async" />
+    </div>
+  </section>
+
+  <section id="projets" class="projects-stage" aria-labelledby="projects-title">
+    <div class="projects-intro">
+      <p class="section-kicker">Projets</p>
+      <h2 id="projects-title">Livrables visibles, formats réels, contraintes terrain.</h2>
+    </div>
+    <div class="project-list">
       {
-        projectTiles.map((project) => {
+        projects.map((project, index) => {
+          const href = project.link;
+          const className = `project-row project-theme-${projectThemes[index] ?? "default"}`;
           const content = (
             <>
+              <span>{project.kind}</span>
+              <strong>{project.title}</strong>
+              <p>{project.role}</p>
               <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
-              <div>
-                <span>{project.kind}</span>
-                <strong>{project.title}</strong>
-              </div>
             </>
           );
 
-          return project.href ? (
+          return href ? (
             <a
-              class="work-tile"
-              href={project.href}
-              target={project.href.startsWith("http") ? "_blank" : undefined}
-              rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              aria-label={`${project.label} : ${project.title}`}
+              class={className}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               {content}
             </a>
           ) : (
-            <article class="work-tile">{content}</article>
+            <article class={className}>{content}</article>
           );
         })
       }
-
-      <article class="work-tile work-tile-text">
-        <span>Proof</span>
-        <strong>250k€+</strong>
-        <p>budget média concours piloté chez KEDGE.</p>
-      </article>
     </div>
-  </section>
-
-  <section class="current-band" aria-labelledby="current-title">
-    <p>Currently</p>
-    <h2 id="current-title">
-      <span>Aider</span>
-      <span>les programmes</span>
-      <span>à recruter.</span>
-    </h2>
-    <a href="#contact">Échangeons</a>
-  </section>
-
-  <section class="proof-band" aria-label="Preuves rapides">
-    {
-      proofSignals.map((signal) => (
-        <article>
-          <strong>{signal.value}</strong>
-          <span>{signal.label}</span>
-        </article>
-      ))
-    }
   </section>
 
   <section id="experience" class="experience-board" aria-labelledby="experience-title">
     <div class="section-heading">
-      <p>Expérience</p>
-      <h2 id="experience-title">Programmes, médias, agence et B2B international.</h2>
+      <p class="section-kicker">Expérience</p>
+      <h2 id="experience-title">Communication, contenus, médias et coordination.</h2>
     </div>
 
     <article class="featured-job">
-      <div>
+      <div class="job-title-block">
         <p>{featuredExperience.organization}</p>
         <h3>{featuredExperience.title}</h3>
         <span>{featuredExperience.period} · {featuredExperience.location}</span>
       </div>
       <ul>
-        {featuredExperience.bullets.slice(0, 3).map((bullet) => <li>{bullet}</li>)}
+        {featuredExperience.bullets.map((bullet) => <li>{bullet}</li>)}
       </ul>
     </article>
 
@@ -127,11 +169,14 @@ const projectTiles = projects.map((project) => ({
       {
         otherExperiences.map((experience) => (
           <article>
-            <div>
-              <h3>{experience.title}</h3>
+            <div class="job-title-block">
               <p>{experience.organization}</p>
+              <h3>{experience.title}</h3>
+              <span>{experience.period} · {experience.location}</span>
             </div>
-            <span>{experience.period}</span>
+            <ul>
+              {experience.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
           </article>
         ))
       }
@@ -140,15 +185,16 @@ const projectTiles = projects.map((project) => ({
 
   <section class="skills-board" aria-labelledby="skills-title">
     <div class="section-heading">
-      <p>Compétences</p>
-      <h2 id="skills-title">Contenu, intention de recherche et workflows IA.</h2>
+      <p class="section-kicker">Compétences</p>
+      <h2 id="skills-title">De l’angle éditorial au support livré.</h2>
     </div>
     <div class="skills-lines">
       {
         skills.map((group) => (
           <article>
             <h3>{group.title}</h3>
-            <p>{group.tools.slice(0, 4).join(" · ")}</p>
+            <p>{group.solved}</p>
+            <span>{group.tools.slice(0, 5).join(" · ")}</span>
           </article>
         ))
       }
@@ -157,15 +203,20 @@ const projectTiles = projects.map((project) => ({
 
   <section class="about-band" aria-labelledby="about-title">
     <div>
-      <p>About</p>
-      <h2 id="about-title">Écrire clair. Produire propre. Avancer.</h2>
+      <p class="section-kicker">Passions</p>
+      <h2 id="about-title">Ce qui nourrit ma façon de travailler.</h2>
     </div>
-    <p>{about.body}</p>
+    <div class="about-copy">
+      <p>{about.body}</p>
+      <div>
+        {about.notes.map((note) => <span>{note.title}</span>)}
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="contact-poster" aria-labelledby="contact-title">
     <div>
-      <p>Contact</p>
+      <p class="section-kicker">Contact</p>
       <h2 id="contact-title">
         <span>Échangeons</span>
         <span>sur vos besoins</span>

@@ -241,8 +241,8 @@ section {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: clamp(8rem, 23vh, 17rem) var(--gutter) clamp(4rem, 10vh, 7rem);
+  justify-content: flex-start;
+  padding: clamp(5.4rem, 12vh, 8rem) var(--gutter) clamp(3rem, 7vh, 5.5rem);
   color: var(--black);
   background: var(--white);
   overflow: hidden;
@@ -262,8 +262,8 @@ section {
 .hero-grid {
   width: min(calc(100vw - (var(--gutter) * 2)), var(--measure));
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.78fr);
-  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 0.78fr) minmax(360px, 0.9fr);
+  gap: clamp(2.5rem, 6vw, 6.5rem);
   align-items: end;
   margin-inline: auto;
 }
@@ -299,7 +299,7 @@ section {
 .hero-poster h1 {
   max-width: 12.5ch;
   font-family: var(--display);
-  font-size: clamp(3rem, 6.4vw, 6rem);
+  font-size: clamp(2.7rem, 5.4vw, 5.25rem);
   font-weight: 900;
   line-height: 1.02;
   letter-spacing: -0.035em;
@@ -591,12 +591,12 @@ section {
 .featured-job li,
 .job-list li {
   max-width: 760px;
-  color: rgba(255, 255, 255, 0.88);
-  font-family: var(--label);
-  font-size: clamp(1.18rem, 1.38vw, 1.48rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: 0.035em;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--body);
+  font-size: clamp(0.95rem, 1.03vw, 1.04rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
   position: relative;
   padding-left: 1.25rem;
 }
@@ -606,7 +606,7 @@ section {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.45em;
+  top: 0.72em;
   width: 0.42rem;
   height: 1px;
   border: 0;
@@ -796,8 +796,8 @@ section {
 
   .hero-poster {
     min-height: 100svh;
-    padding-top: 6.5rem;
-    padding-bottom: 7rem;
+    padding-top: 5.3rem;
+    padding-bottom: 4.5rem;
   }
 
   .hero-grid {
@@ -813,18 +813,18 @@ section {
 
   .hero-poster h1 {
     max-width: 100%;
-    font-size: clamp(2rem, 9.4vw, 3.55rem);
+    font-size: clamp(1.9rem, 8.8vw, 3.25rem);
     line-height: 1.03;
   }
 
   .hero-portrait {
     width: 100%;
     max-width: 30rem;
-    min-height: clamp(19rem, 86vw, 31rem);
+    min-height: clamp(18rem, 74vw, 29rem);
   }
 
   .hero-portrait img {
-    transform: scale(1.08);
+    transform: scale(1.04);
   }
 
   .hero-statement > p,

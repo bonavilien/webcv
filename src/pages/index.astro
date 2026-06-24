@@ -59,63 +59,52 @@ const otherExperiences = [
 
 const projectThemes = ["alumni", "brochure", "interview", "photo"];
 const profileSignals = proofSignals;
+const heroStatement = "Du message au candidat.";
+const projectHeadlines = [
+  "Alumni PGE",
+  "Support PGE",
+  "Interview live",
+  "Forum APHEC",
+];
+const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
 ---
 
 <BaseLayout>
   <div id="top"></div>
 
   <section class="hero-poster" aria-labelledby="hero-title">
-    <div class="hero-meta">
+    <div class="hero-meta" aria-label="Profil">
       <span>{profile.name}</span>
       <span>{profile.location}</span>
     </div>
-    <h1 id="hero-title">
-      <span>Faire passer</span>
-      <span>les messages</span>
-      <span>du brief</span>
-      <span>au terrain.</span>
-    </h1>
-    <a class="scroll-cue" href="#profil" aria-label="Voir le profil">
-      <span></span>
-    </a>
-  </section>
-
-  <section class="statement-invert" aria-hidden="true">
-    <p>
-      <span>Du brief</span>
-      <span>au terrain.</span>
-    </p>
-  </section>
-
-  <section id="profil" class="profile-feature" aria-labelledby="profile-title">
-    <div class="profile-copy">
-      <p class="section-kicker">Profil</p>
-      <h2 id="profile-title">{profile.title}</h2>
-      <p>
-        Je pilote des contenus, campagnes et supports de conversion avec une approche
-        éditoriale, SEO, acquisition et IA. Mon terrain : clarifier le message, produire
-        les bons formats, coordonner les équipes et mesurer ce qui progresse.
-      </p>
-      <div class="profile-signals" aria-label="Points clés">
-        {
-          profileSignals.map((signal) => (
-            <article>
-              <strong>{signal.value}</strong>
-              <span>{signal.label}</span>
-            </article>
-          ))
-        }
+    <div class="hero-statement">
+      <p>{profile.title}</p>
+      <h1 id="hero-title">{heroStatement}</h1>
+      <div class="hero-brief">
+        <p>{profile.value}</p>
+        <a href="#projets" data-cta="hero-projects">Voir les preuves</a>
       </div>
     </div>
-    <div class="profile-portrait" aria-hidden="true">
-      <img src={profile.portrait} alt="" loading="eager" decoding="async" />
-    </div>
+  </section>
+
+  <section class="signal-strip" aria-label="Signal fort">
+    {
+      profileSignals.map((signal) => (
+        <article>
+          <strong>{signal.value}</strong>
+          <span>{signal.label}</span>
+        </article>
+      ))
+    }
   </section>
 
   <section id="projets" class="projects-stage" aria-labelledby="projects-title">
     <div class="projects-intro">
-      <p class="section-kicker">Projets</p>
-      <h2 id="projects-title">Livrables visibles, formats réels, contraintes terrain.</h2>
+      <p class="outline-word" aria-hidden="true">Projets</p>
+      <div>
+        <p class="section-kicker">Projets</p>
+        <h2 id="projects-title">Des preuves visibles, pas des promesses.</h2>
+      </div>
     </div>
     <div class="project-list">
       {
@@ -124,10 +113,10 @@ const profileSignals = proofSignals;
           const className = `project-row project-theme-${projectThemes[index] ?? "default"}`;
           const content = (
             <>
-              <span>{project.kind}</span>
-              <strong>{project.title}</strong>
-              <p>{project.role}</p>
               <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
+              <span>{project.kind}</span>
+              <strong>{projectHeadlines[index] ?? project.title}</strong>
+              <p>{project.role}</p>
             </>
           );
 
@@ -151,13 +140,13 @@ const profileSignals = proofSignals;
   <section id="experience" class="experience-board" aria-labelledby="experience-title">
     <div class="section-heading">
       <p class="section-kicker">Expérience</p>
-      <h2 id="experience-title">Communication, contenus, médias et coordination.</h2>
+      <h2 id="experience-title">Terrain, contenus, concours, IA.</h2>
     </div>
 
     <article class="featured-job">
       <div class="job-title-block">
         <p>{featuredExperience.organization}</p>
-        <h3>{featuredExperience.title}</h3>
+        <h3>Contenu & acquisition</h3>
         <span>{featuredExperience.period} · {featuredExperience.location}</span>
       </div>
       <ul>
@@ -167,11 +156,20 @@ const profileSignals = proofSignals;
 
     <div class="job-list">
       {
-        otherExperiences.map((experience) => (
+        otherExperiences.map((experience, index) => (
           <article>
             <div class="job-title-block">
               <p>{experience.organization}</p>
-              <h3>{experience.title}</h3>
+              <h3>
+                {
+                  [
+                    "Relations médias",
+                    "Marketing & com",
+                    "Com B2B",
+                    "Relations presse",
+                  ][index] ?? experience.title
+                }
+              </h3>
               <span>{experience.period} · {experience.location}</span>
             </div>
             <ul>
@@ -183,16 +181,16 @@ const profileSignals = proofSignals;
     </div>
   </section>
 
-  <section class="skills-board" aria-labelledby="skills-title">
+  <section id="competences" class="skills-board" aria-labelledby="skills-title">
     <div class="section-heading">
       <p class="section-kicker">Compétences</p>
-      <h2 id="skills-title">De l’angle éditorial au support livré.</h2>
+      <h2 id="skills-title">Cadrer. Produire. Optimiser.</h2>
     </div>
     <div class="skills-lines">
       {
-        skills.map((group) => (
+        skills.map((group, index) => (
           <article>
-            <h3>{group.title}</h3>
+            <h3>{skillHeadlines[index] ?? group.title}</h3>
             <p>{group.solved}</p>
             <span>{group.tools.slice(0, 5).join(" · ")}</span>
           </article>
@@ -201,10 +199,10 @@ const profileSignals = proofSignals;
     </div>
   </section>
 
-  <section class="about-band" aria-labelledby="about-title">
+  <section id="a-propos" class="about-band" aria-labelledby="about-title">
     <div>
-      <p class="section-kicker">Passions</p>
-      <h2 id="about-title">Ce qui nourrit ma façon de travailler.</h2>
+      <p class="section-kicker">À propos</p>
+      <h2 id="about-title">Outils. Méthode. Rigueur.</h2>
     </div>
     <div class="about-copy">
       <p>{about.body}</p>
@@ -218,15 +216,15 @@ const profileSignals = proofSignals;
     <div>
       <p class="section-kicker">Contact</p>
       <h2 id="contact-title">
-        <span>Échangeons</span>
-        <span>sur vos besoins</span>
-        <span>communication</span>
-        <span>& marketing.</span>
+        <span>Un message</span>
+        <span>à clarifier ?</span>
+        <span>Un support</span>
+        <span>à livrer ?</span>
       </h2>
     </div>
     <address>
       {contactLinks.map((link) => <a href={link.href}>{link.label}</a>)}
     </address>
-    <a class="back-top" href="#top">Back to top</a>
+    <a class="back-top" href="#top">Retour haut</a>
   </section>
 </BaseLayout>

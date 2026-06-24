@@ -96,8 +96,7 @@ h1,
 h2,
 h3,
 .project-row strong,
-.signal-strip strong,
-.outline-word {
+.signal-strip strong {
   text-wrap: balance;
   overflow-wrap: normal;
   word-break: normal;
@@ -263,8 +262,8 @@ section {
 .hero-grid {
   width: min(calc(100vw - (var(--gutter) * 2)), var(--measure));
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(260px, 0.58fr);
-  gap: clamp(2rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.78fr);
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: end;
   margin-inline: auto;
 }
@@ -307,27 +306,11 @@ section {
   text-transform: uppercase;
 }
 
-.hero-brief {
-  display: grid;
-  grid-template-columns: minmax(0, 34rem) auto;
-  gap: clamp(1.4rem, 4vw, 4rem);
-  align-items: end;
-  margin-top: clamp(2rem, 5.5vw, 4.6rem);
-}
-
-.hero-brief p {
-  color: #222222;
-  font-family: var(--serif);
-  font-size: clamp(1.2rem, 1.6vw, 1.55rem);
-  line-height: 1.22;
-  text-wrap: pretty;
-}
-
 .hero-portrait {
   position: relative;
   align-self: stretch;
   min-width: 0;
-  min-height: clamp(25rem, 54vw, 41rem);
+  min-height: clamp(30rem, 58vw, 46rem);
   margin: 0;
   overflow: visible;
   background: transparent;
@@ -340,9 +323,10 @@ section {
   object-fit: contain;
   object-position: 50% 100%;
   filter: contrast(1.04) saturate(0.92);
+  transform: scale(1.16);
+  transform-origin: 50% 100%;
 }
 
-.hero-brief a,
 .contact-poster address a {
   position: relative;
   min-height: 44px;
@@ -358,7 +342,6 @@ section {
   transition: color 0.3s var(--ease);
 }
 
-.hero-brief a::after,
 .contact-poster address a::after {
   content: "";
   position: absolute;
@@ -372,15 +355,11 @@ section {
   transition: transform 0.45s var(--ease);
 }
 
-.hero-brief a:hover,
-.hero-brief a:focus-visible,
 .contact-poster address a:hover,
 .contact-poster address a:focus-visible {
   color: var(--cyan);
 }
 
-.hero-brief a:hover::after,
-.hero-brief a:focus-visible::after,
 .contact-poster address a:hover::after,
 .contact-poster address a:focus-visible::after {
   transform: scaleX(0.35);
@@ -411,11 +390,12 @@ section {
 .signal-strip strong {
   color: var(--white);
   font-family: var(--display);
-  font-size: clamp(2.6rem, 5vw, 5.8rem);
+  font-size: clamp(1.95rem, 3.55vw, 4.05rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.035em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .signal-strip span {
@@ -446,21 +426,8 @@ section {
   margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
-.outline-word {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--ghost-strong);
-  font-family: var(--display);
-  font-size: clamp(4rem, 11vw, 10rem);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-
-.projects-intro > div {
+.projects-intro h2 {
   max-width: 52rem;
-  margin-top: clamp(-1.2rem, -1vw, -0.4rem);
 }
 
 .section-kicker {
@@ -617,18 +584,21 @@ section {
 .featured-job ul,
 .job-list ul {
   display: grid;
-  gap: 0.9rem;
+  gap: 1.05rem;
   align-content: start;
 }
 
 .featured-job li,
 .job-list li {
   max-width: 760px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: clamp(0.96rem, 1.08vw, 1.08rem);
-  line-height: 1.42;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--label);
+  font-size: clamp(1.18rem, 1.38vw, 1.48rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.035em;
   position: relative;
-  padding-left: 1.35rem;
+  padding-left: 1.25rem;
 }
 
 .featured-job li::before,
@@ -636,11 +606,11 @@ section {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.58em;
+  top: 0.45em;
   width: 0.42rem;
-  height: 0.42rem;
-  border: 1px solid var(--ghost-strong);
-  background: transparent;
+  height: 1px;
+  border: 0;
+  background: var(--ghost-strong);
 }
 
 .skills-lines {
@@ -849,8 +819,12 @@ section {
 
   .hero-portrait {
     width: 100%;
-    max-width: 26rem;
-    min-height: clamp(17rem, 78vw, 27rem);
+    max-width: 30rem;
+    min-height: clamp(19rem, 86vw, 31rem);
+  }
+
+  .hero-portrait img {
+    transform: scale(1.08);
   }
 
   .hero-statement > p,
@@ -862,12 +836,6 @@ section {
   .skills-lines span,
   .back-top {
     letter-spacing: 0.24em;
-  }
-
-  .hero-brief {
-    grid-template-columns: 1fr;
-    align-items: start;
-    margin-top: 2rem;
   }
 
   .hero-meta {
@@ -902,10 +870,6 @@ section {
   .contact-poster {
     padding-top: 4.6rem;
     padding-bottom: 4.6rem;
-  }
-
-  .outline-word {
-    font-size: clamp(3.4rem, 18vw, 5.8rem);
   }
 
   .projects-intro h2,

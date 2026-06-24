@@ -92,6 +92,26 @@ p {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+.project-row strong,
+.signal-strip strong,
+.outline-word {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
+}
+
+p,
+li,
+span,
+a {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -218,6 +238,7 @@ section {
 }
 
 .hero-poster {
+  position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -225,6 +246,7 @@ section {
   padding: clamp(8rem, 23vh, 17rem) var(--gutter) clamp(4rem, 10vh, 7rem);
   color: var(--black);
   background: var(--white);
+  overflow: hidden;
 }
 
 .hero-meta {
@@ -238,7 +260,18 @@ section {
   color: var(--muted-dark);
 }
 
+.hero-grid {
+  width: min(100%, var(--measure));
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(260px, 0.58fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: end;
+  margin-inline: auto;
+}
+
 .hero-statement {
+  position: relative;
+  z-index: 1;
   width: min(100%, 78rem);
 }
 
@@ -252,18 +285,25 @@ section {
   text-transform: uppercase;
 }
 
+.hero-name {
+  display: block;
+  margin-bottom: clamp(0.75rem, 1.8vw, 1.4rem);
+  font-family: var(--label);
+  font-size: clamp(1.55rem, 3vw, 3.1rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
 .hero-poster h1 {
   max-width: 12.5ch;
   font-family: var(--display);
   font-size: clamp(3rem, 6.4vw, 6rem);
   font-weight: 900;
-  line-height: 0.88;
+  line-height: 1.02;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  text-wrap: balance;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: manual;
 }
 
 .hero-brief {
@@ -276,9 +316,37 @@ section {
 
 .hero-brief p {
   color: #222222;
-  font-size: clamp(1rem, 1.35vw, 1.24rem);
-  line-height: 1.42;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 1.6vw, 1.55rem);
+  line-height: 1.22;
   text-wrap: pretty;
+}
+
+.hero-portrait {
+  position: relative;
+  align-self: stretch;
+  min-height: clamp(25rem, 54vw, 41rem);
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  isolation: isolate;
+}
+
+.hero-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.22));
+  pointer-events: none;
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%;
+  filter: contrast(1.04) saturate(0.92);
 }
 
 .hero-brief a,
@@ -352,7 +420,7 @@ section {
   font-family: var(--display);
   font-size: clamp(2.6rem, 5vw, 5.8rem);
   font-weight: 900;
-  line-height: 0.82;
+  line-height: 1;
   letter-spacing: -0.035em;
   text-transform: uppercase;
 }
@@ -391,7 +459,7 @@ section {
   font-family: var(--display);
   font-size: clamp(4rem, 11vw, 10rem);
   font-weight: 900;
-  line-height: 0.78;
+  line-height: 0.95;
   letter-spacing: -0.035em;
   text-transform: uppercase;
   pointer-events: none;
@@ -414,13 +482,9 @@ section {
   font-family: var(--display);
   font-size: clamp(2.6rem, 6vw, 6rem);
   font-weight: 900;
-  line-height: 0.88;
+  line-height: 1.02;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  text-wrap: balance;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: manual;
 }
 
 .project-list {
@@ -483,16 +547,13 @@ section {
 }
 
 .project-row strong {
-  max-width: 10ch;
+  max-width: min(100%, 12ch);
   font-family: var(--display);
   font-size: clamp(1.55rem, 2.7vw, 3.1rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 1.03;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: manual;
 }
 
 .project-row p {
@@ -548,12 +609,9 @@ section {
   font-family: var(--display);
   font-size: clamp(1.55rem, 2.65vw, 3.25rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 1.03;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: manual;
 }
 
 .job-title-block p,
@@ -576,17 +634,20 @@ section {
   color: rgba(255, 255, 255, 0.82);
   font-size: clamp(0.96rem, 1.08vw, 1.08rem);
   line-height: 1.42;
+  position: relative;
+  padding-left: 1.35rem;
 }
 
 .featured-job li::before,
 .job-list li::before {
   content: "";
-  width: 0.6rem;
-  height: 0.6rem;
-  display: inline-block;
-  margin-right: 0.75rem;
-  background: var(--cyan);
-  vertical-align: 0.05em;
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 0.42rem;
+  height: 0.42rem;
+  border: 1px solid var(--ghost-strong);
+  background: transparent;
 }
 
 .skills-lines {
@@ -611,12 +672,9 @@ section {
   font-family: var(--display);
   font-size: clamp(1.55rem, 2.7vw, 3rem);
   font-weight: 900;
-  line-height: 0.92;
+  line-height: 1.04;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: manual;
 }
 
 .skills-lines p {
@@ -775,14 +833,30 @@ section {
 
   .hero-poster {
     min-height: 100svh;
-    padding-top: 7rem;
+    padding-top: 6.5rem;
     padding-bottom: 7rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .hero-name {
+    font-size: clamp(1.15rem, 6vw, 1.8rem);
+    letter-spacing: 0.16em;
   }
 
   .hero-poster h1 {
     max-width: 9.4ch;
     font-size: clamp(2.55rem, 12.8vw, 4.6rem);
-    line-height: 0.9;
+    line-height: 1.03;
+  }
+
+  .hero-portrait {
+    width: min(100%, 26rem);
+    min-height: clamp(18rem, 85vw, 28rem);
   }
 
   .hero-statement > p,
@@ -845,7 +919,7 @@ section {
   .about-band h2,
   .contact-poster h2 {
     font-size: clamp(1.85rem, 9.6vw, 3.15rem);
-    line-height: 0.9;
+    line-height: 1.04;
   }
 
   .project-row {

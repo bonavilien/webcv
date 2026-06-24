@@ -59,7 +59,7 @@ const otherExperiences = [
 
 const projectThemes = ["alumni", "brochure", "interview", "photo"];
 const profileSignals = proofSignals;
-const heroStatement = "Du message au candidat.";
+const heroStatement = "Du message à la conversion.";
 const projectHeadlines = [
   "Alumni PGE",
   "Support PGE",
@@ -74,16 +74,22 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
 
   <section class="hero-poster" aria-labelledby="hero-title">
     <div class="hero-meta" aria-label="Profil">
-      <span>{profile.name}</span>
       <span>{profile.location}</span>
+      <span>{profile.subtitle}</span>
     </div>
-    <div class="hero-statement">
-      <p>{profile.title}</p>
-      <h1 id="hero-title">{heroStatement}</h1>
-      <div class="hero-brief">
-        <p>{profile.value}</p>
-        <a href="#projets" data-cta="hero-projects">Voir les preuves</a>
+    <div class="hero-grid">
+      <div class="hero-statement">
+        <p>{profile.title}</p>
+        <strong class="hero-name">{profile.name}</strong>
+        <h1 id="hero-title">{heroStatement}</h1>
+        <div class="hero-brief">
+          <p>{profile.value}</p>
+          <a href="#projets" data-cta="hero-projects">Voir les preuves</a>
+        </div>
       </div>
+      <figure class="hero-portrait" aria-label={`Portrait de ${profile.name}`}>
+        <img src="/images/Portrait2026.png" alt="" loading="eager" decoding="async" />
+      </figure>
     </div>
   </section>
 

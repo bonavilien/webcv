@@ -273,6 +273,8 @@ section {
   z-index: 1;
   min-width: 0;
   width: min(100%, 78rem);
+  align-self: center;
+  transform: translateY(clamp(-5rem, -7vw, -2.5rem));
 }
 
 .hero-statement > p {
@@ -315,16 +317,17 @@ section {
   overflow: visible;
   background: transparent;
   isolation: isolate;
+  transform: translateX(clamp(0.75rem, 2vw, 2rem));
 }
 
 .hero-portrait img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: 50% 100%;
+  object-position: 58% 100%;
   filter: contrast(1.04) saturate(0.92);
-  transform: scale(1.16);
-  transform-origin: 50% 100%;
+  transform: scale(0.93);
+  transform-origin: 60% 100%;
 }
 
 .contact-poster address a {
@@ -806,6 +809,11 @@ section {
     align-items: start;
   }
 
+  .hero-statement {
+    align-self: start;
+    transform: none;
+  }
+
   .hero-name {
     font-size: clamp(1.15rem, 6vw, 1.8rem);
     letter-spacing: 0.16em;
@@ -821,10 +829,12 @@ section {
     width: 100%;
     max-width: 30rem;
     min-height: clamp(18rem, 74vw, 29rem);
+    transform: translateX(0.4rem);
   }
 
   .hero-portrait img {
-    transform: scale(1.04);
+    object-position: 56% 100%;
+    transform: scale(0.86);
   }
 
   .hero-statement > p,

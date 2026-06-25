@@ -180,14 +180,14 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
   </section>
 
   <section id="competences" class="skills-board" aria-labelledby="skills-title">
-    <div class="section-heading">
+    <div class="section-heading" data-reveal style="--reveal-delay: 0ms">
       <p class="section-kicker">Compétences</p>
       <h2 id="skills-title">Cadrer. Produire. Optimiser.</h2>
     </div>
     <div class="skills-lines">
       {
         skills.map((group, index) => (
-          <article>
+          <article data-reveal style={`--reveal-delay: ${120 + index * 70}ms`}>
             <h3>{skillHeadlines[index] ?? group.title}</h3>
             <p>{group.solved}</p>
             <span>{group.tools.slice(0, 5).join(" · ")}</span>
@@ -198,11 +198,11 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
   </section>
 
   <section id="a-propos" class="about-band" aria-labelledby="about-title">
-    <div>
+    <div data-reveal style="--reveal-delay: 0ms">
       <p class="section-kicker">À propos</p>
       <h2 id="about-title">Outils. Méthode. Rigueur.</h2>
     </div>
-    <div class="about-copy">
+    <div class="about-copy" data-reveal style="--reveal-delay: 140ms">
       <p>{about.body}</p>
       <div>
         {about.notes.map((note) => <span>{note.title}</span>)}

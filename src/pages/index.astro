@@ -91,8 +91,8 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
 
   <section class="signal-strip" aria-label="Signal fort">
     {
-      profileSignals.map((signal) => (
-        <article>
+      profileSignals.map((signal, index) => (
+        <article data-reveal style={`--reveal-delay: ${index * 90}ms`}>
           <strong>{signal.value}</strong>
           <span>{signal.label}</span>
         </article>

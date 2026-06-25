@@ -59,14 +59,32 @@ html {
 }
 
 body {
+  --site-bg: var(--black);
   margin: 0;
   color: var(--white);
-  background: var(--black);
+  background: var(--site-bg);
   font-family: var(--body);
   font-size: 16px;
   line-height: 1.45;
   text-rendering: geometricPrecision;
   overflow-x: hidden;
+  transition: background-color 0.28s ease-out;
+}
+
+body:has(.project-theme-alumni:is(:hover, :focus-visible)) {
+  --site-bg: #5f9275;
+}
+
+body:has(.project-theme-brochure:is(:hover, :focus-visible)) {
+  --site-bg: #b17b16;
+}
+
+body:has(.project-theme-interview:is(:hover, :focus-visible)) {
+  --site-bg: #c97138;
+}
+
+body:has(.project-theme-photo:is(:hover, :focus-visible)) {
+  --site-bg: #326f9b;
 }
 
 ::selection {
@@ -423,33 +441,15 @@ section {
 .skills-board,
 .about-band,
 .contact-poster {
-  background: var(--black);
+  background: var(--site-bg);
   color: var(--white);
-}
-
-.projects-stage {
-  --projects-bg: var(--black);
-  position: relative;
-  padding: clamp(4rem, 8vw, 7rem) var(--gutter) clamp(6rem, 12vw, 11rem);
-  background-color: var(--projects-bg);
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.24));
   transition: background-color 0.28s ease-out;
 }
 
-.projects-stage:has(.project-theme-alumni:is(:hover, :focus-visible)) {
-  --projects-bg: #5f9275;
-}
-
-.projects-stage:has(.project-theme-brochure:is(:hover, :focus-visible)) {
-  --projects-bg: #b17b16;
-}
-
-.projects-stage:has(.project-theme-interview:is(:hover, :focus-visible)) {
-  --projects-bg: #c97138;
-}
-
-.projects-stage:has(.project-theme-photo:is(:hover, :focus-visible)) {
-  --projects-bg: #326f9b;
+.projects-stage {
+  position: relative;
+  padding: clamp(4rem, 8vw, 7rem) var(--gutter) clamp(6rem, 12vw, 11rem);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.24));
 }
 
 .projects-intro {

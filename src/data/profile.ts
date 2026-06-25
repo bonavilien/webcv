@@ -76,13 +76,14 @@ export const proofSignals = [
 export const projects: Project[] = [
   {
     title: "Mur des alumni PGE",
-    kind: "Web & admissibles",
-    role: "Développement front et preuve sociale alumni",
+    kind: "Développement web",
+    role:
+      "Création d'un wall of alumni pour mettre en avant un programme phare d'une école de commerce.",
     context:
       "Module admissibles conçu pour montrer des parcours diplômés et donner du concret aux candidats.",
     image: "images/projects/mur-alumni.webp",
     imageAlt:
-      "Capture de la page Mur des alumni du site admissibles KEDGE PGE.",
+      "Wall of alumni présentant des diplômés du Programme Grande École de KEDGE.",
     link: "https://admissibles.kedge.edu/pge/preparer-ma-venue/nos-diplomes",
     linkLabel: "Voir la page",
     featured: true,
@@ -91,7 +92,8 @@ export const projects: Project[] = [
   {
     title: "Brochure PGE KEDGE",
     kind: "Brochure & contenus",
-    role: "Architecture éditoriale, squelette et contenus",
+    role:
+      "Architecture et contenu de la brochure du Programme Grande École de KEDGE.",
     context:
       "Support de recrutement structuré pour rendre le Programme Grande École plus lisible pendant les temps forts.",
     image: "images/projects/brochure-pge.webp",
@@ -104,8 +106,8 @@ export const projects: Project[] = [
   },
   {
     title: "Interview Enes Kanter Freedom",
-    kind: "Interview & storytelling",
-    role: "Interview publique et préparation éditoriale",
+    kind: "Interview",
+    role: "Interview publique",
     context:
       "Échange mené sur scène devant les étudiants et candidats, avec un angle leadership et engagement.",
     image: "images/projects/enes-kanter-interview.webp",
@@ -114,9 +116,9 @@ export const projects: Project[] = [
     competences: ["Interview", "Événementiel", "Storytelling"],
   },
   {
-    title: "Shooting photo Forum APHEC",
+    title: "Shooting Photo",
     kind: "Shooting photo & média partenaire",
-    role: "Prise de vue terrain",
+    role: "Shooting lors d'un évènement type salon étudiant.",
     context:
       "Reportage photo réalisé pendant le forum APHEC, puis repris dans Le Major de Major Prépa.",
     image: "images/projects/forum-aphec-major.webp",

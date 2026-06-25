@@ -61,10 +61,10 @@ const projectThemes = ["alumni", "brochure", "interview", "photo"];
 const profileSignals = proofSignals;
 const heroStatement = "Du message à la conversion.";
 const projectHeadlines = [
-  "Alumni PGE",
-  "Support PGE",
+  "Développement web",
+  "Création Print et Digitale",
   "Interview live",
-  "Forum APHEC",
+  "Shooting Photo",
 ];
 const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
 ---
@@ -112,7 +112,6 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
           const content = (
             <>
               <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
-              <span>{project.kind}</span>
               <strong>{projectHeadlines[index] ?? project.title}</strong>
               <p>{project.role}</p>
             </>

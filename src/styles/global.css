@@ -218,7 +218,6 @@ section {
 .nav-links a,
 .section-kicker,
 .hero-meta,
-.project-row span,
 .job-title-block p,
 .job-title-block span,
 .skills-lines span,
@@ -547,12 +546,6 @@ section {
   transform: scale(1);
 }
 
-.project-row span {
-  color: var(--muted-light);
-  font-size: 0.78rem;
-  letter-spacing: 0.32em;
-}
-
 .project-row strong {
   max-width: 100%;
   font-family: var(--display);
@@ -564,10 +557,13 @@ section {
 }
 
 .project-row p {
-  max-width: 18rem;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.95rem;
-  line-height: 1.28;
+  max-width: 21rem;
+  color: var(--muted-light);
+  font-family: var(--label);
+  font-size: clamp(0.95rem, 1.05vw, 1.08rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0.08em;
 }
 
 .experience-board,
@@ -964,7 +960,6 @@ section {
   .hero-statement > p,
   .hero-meta,
   .section-kicker,
-  .project-row span,
   .job-title-block p,
   .job-title-block span,
   .skills-lines span,

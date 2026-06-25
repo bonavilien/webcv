@@ -242,7 +242,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: clamp(5.4rem, 12vh, 8rem) var(--gutter) clamp(3rem, 7vh, 5.5rem);
+  padding: clamp(5.1rem, 10vh, 7rem) var(--gutter) 0;
   color: var(--black);
   background: var(--white);
   overflow: hidden;
@@ -261,6 +261,7 @@ section {
 
 .hero-grid {
   width: min(calc(100vw - (var(--gutter) * 2)), var(--measure));
+  flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 0.78fr) minmax(360px, 0.9fr);
   gap: clamp(2.5rem, 6vw, 6.5rem);
@@ -272,9 +273,13 @@ section {
   position: relative;
   z-index: 1;
   min-width: 0;
+  min-height: clamp(30rem, 58vw, 46rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: min(100%, 78rem);
   align-self: center;
-  transform: translateY(clamp(-5rem, -7vw, -2.5rem));
+  transform: translateY(clamp(-3rem, -4.5vw, -1.5rem));
 }
 
 .hero-statement > p {
@@ -317,17 +322,17 @@ section {
   overflow: visible;
   background: transparent;
   isolation: isolate;
-  transform: translateX(clamp(0.75rem, 2vw, 2rem));
+  transform: translateX(clamp(1.4rem, 3.3vw, 3.4rem));
 }
 
 .hero-portrait img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: 58% 100%;
+  object-position: 63% 100%;
   filter: contrast(1.04) saturate(0.92);
-  transform: scale(0.93);
-  transform-origin: 60% 100%;
+  transform: scale(1.04);
+  transform-origin: 65% 100%;
 }
 
 .contact-poster address a {
@@ -800,17 +805,19 @@ section {
   .hero-poster {
     min-height: 100svh;
     padding-top: 5.3rem;
-    padding-bottom: 4.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
+    gap: 1.25rem;
     align-items: start;
+    align-content: start;
   }
 
   .hero-statement {
     align-self: start;
+    min-height: auto;
     transform: none;
   }
 
@@ -829,12 +836,12 @@ section {
     width: 100%;
     max-width: 30rem;
     min-height: clamp(18rem, 74vw, 29rem);
-    transform: translateX(0.4rem);
+    transform: translateX(0.8rem);
   }
 
   .hero-portrait img {
-    object-position: 56% 100%;
-    transform: scale(0.86);
+    object-position: 60% 100%;
+    transform: scale(0.96);
   }
 
   .hero-statement > p,

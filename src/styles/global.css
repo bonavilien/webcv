@@ -237,12 +237,13 @@ section {
 }
 
 .hero-poster {
+  --hero-top-space: clamp(5.1rem, 10vh, 7rem);
   position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: clamp(5.1rem, 10vh, 7rem) var(--gutter) 0;
+  padding: var(--hero-top-space) var(--gutter) 0;
   color: var(--black);
   background: var(--white);
   overflow: hidden;
@@ -317,22 +318,22 @@ section {
   position: relative;
   align-self: stretch;
   min-width: 0;
-  min-height: clamp(30rem, 58vw, 46rem);
-  margin: 0;
+  min-height: 100svh;
+  margin: calc(var(--hero-top-space) * -1) 0 0;
   overflow: visible;
   background: transparent;
   isolation: isolate;
-  transform: translateX(clamp(1.4rem, 3.3vw, 3.4rem));
+  transform: translateX(clamp(2.8rem, 6vw, 6.2rem));
 }
 
 .hero-portrait img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: 63% 100%;
+  object-position: 78% 100%;
   filter: contrast(1.04) saturate(0.92);
-  transform: scale(1.04);
-  transform-origin: 65% 100%;
+  transform: scale(1.18);
+  transform-origin: 78% 100%;
 }
 
 .contact-poster address a {
@@ -836,6 +837,7 @@ section {
     width: 100%;
     max-width: 30rem;
     min-height: clamp(18rem, 74vw, 29rem);
+    margin: 0;
     transform: translateX(0.8rem);
   }
 

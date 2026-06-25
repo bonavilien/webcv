@@ -424,8 +424,28 @@ section {
 }
 
 .projects-stage {
+  --projects-bg: var(--black);
   position: relative;
   padding: clamp(4rem, 8vw, 7rem) var(--gutter) clamp(6rem, 12vw, 11rem);
+  background-color: var(--projects-bg);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.46));
+  transition: background-color 0.55s var(--ease);
+}
+
+.projects-stage:has(.project-theme-alumni:is(:hover, :focus-visible)) {
+  --projects-bg: #33493f;
+}
+
+.projects-stage:has(.project-theme-brochure:is(:hover, :focus-visible)) {
+  --projects-bg: #8a610f;
+}
+
+.projects-stage:has(.project-theme-interview:is(:hover, :focus-visible)) {
+  --projects-bg: #74401f;
+}
+
+.projects-stage:has(.project-theme-photo:is(:hover, :focus-visible)) {
+  --projects-bg: #13283a;
 }
 
 .projects-intro {
@@ -504,8 +524,8 @@ section {
 
 .project-row:hover img,
 .project-row:focus-visible img {
-  opacity: 0.95;
-  filter: grayscale(0.2) contrast(1.12) brightness(0.76);
+  opacity: 1;
+  filter: grayscale(0) contrast(1.1) brightness(0.82) saturate(1.12);
   transform: scale(1.01);
 }
 

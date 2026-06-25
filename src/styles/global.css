@@ -805,7 +805,7 @@ section {
 
   .hero-poster {
     min-height: 100svh;
-    padding-top: 5.3rem;
+    padding-top: 4.25rem;
     padding-bottom: 2.5rem;
   }
 
@@ -858,7 +858,12 @@ section {
   }
 
   .hero-meta {
-    bottom: 1.25rem;
+    position: static;
+    order: 3;
+    width: min(calc(100vw - (var(--gutter) * 2)), var(--measure));
+    margin: 1.25rem auto 0;
+    max-width: none;
+    gap: 0.5rem 1.2rem;
   }
 
   .signal-strip,

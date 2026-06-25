@@ -73,15 +73,15 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
   <div id="top"></div>
 
   <section class="hero-poster" aria-labelledby="hero-title">
-    <div class="hero-meta" aria-label="Profil">
-      <span>{profile.location}</span>
-      <span>{profile.subtitle}</span>
-    </div>
     <div class="hero-grid">
       <div class="hero-statement">
         <p>{profile.title}</p>
         <strong class="hero-name">{profile.name}</strong>
         <h1 id="hero-title">{heroStatement}</h1>
+      </div>
+      <div class="hero-meta" aria-label="Profil">
+        <span>{profile.location}</span>
+        <span>{profile.subtitle}</span>
       </div>
       <figure class="hero-portrait" aria-label={`Portrait de ${profile.name}`}>
         <img src="/images/Portrait2026.png" alt="" loading="eager" decoding="async" />

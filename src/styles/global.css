@@ -154,7 +154,7 @@ section {
 }
 
 .site-header {
-  position: fixed;
+  position: absolute;
   inset: 0 0 auto;
   z-index: 40;
   color: var(--black);
@@ -437,19 +437,19 @@ section {
 }
 
 .projects-stage:has(.project-theme-alumni:is(:hover, :focus-visible)) {
-  --projects-bg: #4c765f;
+  --projects-bg: #5f9275;
 }
 
 .projects-stage:has(.project-theme-brochure:is(:hover, :focus-visible)) {
-  --projects-bg: #986a0f;
+  --projects-bg: #b17b16;
 }
 
 .projects-stage:has(.project-theme-interview:is(:hover, :focus-visible)) {
-  --projects-bg: #ad622e;
+  --projects-bg: #c97138;
 }
 
 .projects-stage:has(.project-theme-photo:is(:hover, :focus-visible)) {
-  --projects-bg: #24557a;
+  --projects-bg: #326f9b;
 }
 
 .projects-intro {
@@ -516,7 +516,7 @@ section {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.88));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.82));
   opacity: 0.78;
   transition: opacity 0.28s ease-out;
 }
@@ -537,14 +537,14 @@ section {
 
 .project-row:hover::before,
 .project-row:focus-visible::before {
-  opacity: 0.68;
+  opacity: 0.42;
 }
 
 .project-row:hover img,
 .project-row:focus-visible img {
   opacity: 1;
-  filter: grayscale(0) contrast(1.08) brightness(0.9) saturate(1.16);
-  transform: scale(1.01);
+  filter: grayscale(0) contrast(1.02) brightness(1.05) saturate(1.24);
+  transform: scale(1);
 }
 
 .project-row span {
@@ -828,16 +828,12 @@ section {
   color: var(--jacket-red);
 }
 
-.reveal-ready .about-band > [data-reveal]:first-child {
-  transform: translateX(-1.4rem);
-}
-
-.reveal-ready .about-band > [data-reveal]:last-child {
-  transform: translateX(1.4rem);
+.reveal-ready .about-band > [data-reveal] {
+  transform: translateY(1.2rem);
 }
 
 .reveal-ready .about-band > [data-reveal].is-visible {
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .contact-poster {
@@ -910,6 +906,48 @@ section {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-poster {
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.2rem;
+    align-items: start;
+    align-content: start;
+  }
+
+  .hero-statement {
+    align-self: start;
+    min-height: auto;
+    transform: none;
+  }
+
+  .hero-meta {
+    position: static;
+    width: min(calc(100vw - (var(--gutter) * 2)), var(--measure));
+    max-width: none;
+    margin: 0 auto;
+    gap: 0.5rem 1.2rem;
+  }
+
+  .hero-portrait {
+    width: 100%;
+    max-width: 31rem;
+    min-height: clamp(20rem, 76vw, 34rem);
+    margin: 0 auto;
+    transform: translateX(0.8rem);
+  }
+
+  .hero-portrait img {
+    object-position: 60% 100%;
+    transform: scale(0.98);
+  }
+}
+
 @media (max-width: 760px) {
   :root {
     --gutter: 1.15rem;
@@ -939,22 +977,11 @@ section {
   }
 
   .hero-poster {
-    min-height: 100svh;
     padding-top: 4.25rem;
-    padding-bottom: 2.5rem;
   }
 
   .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
-    align-items: start;
-    align-content: start;
-  }
-
-  .hero-statement {
-    align-self: start;
-    min-height: auto;
-    transform: none;
   }
 
   .hero-name {
@@ -969,15 +996,11 @@ section {
   }
 
   .hero-portrait {
-    width: 100%;
     max-width: 30rem;
     min-height: clamp(18rem, 74vw, 29rem);
-    margin: 0;
-    transform: translateX(0.8rem);
   }
 
   .hero-portrait img {
-    object-position: 60% 100%;
     transform: scale(0.96);
   }
 
@@ -993,12 +1016,7 @@ section {
   }
 
   .hero-meta {
-    position: static;
-    order: 3;
-    width: min(calc(100vw - (var(--gutter) * 2)), var(--measure));
-    margin: 1.25rem auto 0;
-    max-width: none;
-    gap: 0.5rem 1.2rem;
+    margin: 0;
   }
 
   .signal-strip,
@@ -1065,15 +1083,6 @@ section {
   .skills-lines article:hover,
   .skills-lines article:focus-within {
     transform: none;
-  }
-
-  .reveal-ready .about-band > [data-reveal]:first-child,
-  .reveal-ready .about-band > [data-reveal]:last-child {
-    transform: translateY(1.2rem);
-  }
-
-  .reveal-ready .about-band > [data-reveal].is-visible {
-    transform: translateY(0);
   }
 
   .contact-poster {

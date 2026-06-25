@@ -177,15 +177,16 @@ section {
 }
 
 .brand-mark {
-  min-width: 44px;
+  width: clamp(4.4rem, 7vw, 5.8rem);
   min-height: 44px;
   display: inline-flex;
   align-items: flex-start;
-  font-family: var(--display);
-  font-size: clamp(1rem, 1.8vw, 1.55rem);
-  font-weight: 900;
-  line-height: 0.8;
-  letter-spacing: -0.08em;
+}
+
+.brand-mark img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .nav-links {

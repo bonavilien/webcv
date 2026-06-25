@@ -141,7 +141,7 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
       <h2 id="experience-title">Stratégie, contenu, média, IA.</h2>
     </div>
 
-    <article class="featured-job">
+    <article class="featured-job" data-reveal style="--reveal-delay: 0ms">
       <div class="job-title-block">
         <p>{featuredExperience.organization}</p>
         <h3>Contenu & acquisition</h3>
@@ -155,7 +155,7 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
     <div class="job-list">
       {
         otherExperiences.map((experience, index) => (
-          <article>
+          <article data-reveal style={`--reveal-delay: ${120 + index * 80}ms`}>
             <div class="job-title-block">
               <p>{experience.organization}</p>
               <h3>
@@ -225,4 +225,30 @@ const skillHeadlines = ["Contenu", "SEO", "IA", "Tech"];
     </address>
     <a class="back-top" href="#top">Retour haut</a>
   </section>
+
+  <script is:inline>
+    document.documentElement.classList.add("reveal-ready");
+
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    if (!("IntersectionObserver" in window)) {
+      for (const item of revealItems) {
+        item.classList.add("is-visible");
+      }
+    } else {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.18 },
+      );
+
+      for (const item of revealItems) {
+        revealObserver.observe(item);
+      }
+    }
+  </script>
 </BaseLayout>
